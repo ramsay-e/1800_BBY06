@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi this is Ramsay.
 * My name is Mitchell. I like food.
 	
 ## Technologies

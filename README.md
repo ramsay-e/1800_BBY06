@@ -8,7 +8,8 @@
 This browser based web application to ...
 * Hi this is Ramsay.
 * My name is Mitchell. I like food.
-* This is Sunreet.
+* Hey, I am Sunreet.
+
 	
 ## Technologies
 Technologies used for this project:

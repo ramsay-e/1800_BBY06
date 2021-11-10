@@ -130,6 +130,7 @@
   </style>
 
   <!-- link to all the api keys for the project -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="scripts/my_script.js"></script>
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 
@@ -147,9 +148,9 @@
 
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Profile</a></li>
+          <li><a href="#"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
+          <li><a href="#"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
+          <li><a href="#"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a></li>
         </ul>
       </nav>
 
@@ -186,9 +187,9 @@
                     </div>
                 </fieldset>
                 <div class="d-flex justify-content-end mt-5">
-                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <button type="button" class="btn btn-secondary" style="font-size: 130%;" onclick="editUserInfo()">Edit</button>
                     <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
+                    <button type="button" class="btn btn-success" style="font-size: 130%;" onclick="saveUserInfo()">Save</button>
                 </div>
             </form>
         </div>
@@ -197,24 +198,23 @@
       <div class="col-md-4">
         <div class="p-3 py-5">
           <a href="quiz.html">
-          <button type="button" class="btn btn-success">Edit diet restrictions/preferences</button><br>
+          <button type="button" class="btn btn-success" style="font-size: 130%; background-image: linear-gradient(rgb(0, 122, 0), rgb(0, 163, 0));"><i class="material-icons" style="font-size: 100%;">edit</i>Edit diet restrictions/preferences</button><br>
           </a>
           <br>
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              FAQ
+          <p>
+            <button class="btn btn-success" style="font-size: 130%; background-image: radial-gradientwhite, rgb(1, 138, 1));" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Button with data-bs-target
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+          </p>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+              Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
             </div>
           </div>
           <br>
           <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" style="font-size: 130%;" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 100%;">contacts</i>
               Contact Us
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -224,7 +224,9 @@
             </div>
           </div>
           <br>
-          <button type="button" class="btn btn-success">Log Out</button>
+          <a href="login.html">
+          <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">logout</i> Log Out</button>
+          </a>
           <div class="col-md-12"><label class="labels">
           </label></div>
         </div>

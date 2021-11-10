@@ -11,16 +11,76 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
   <!-- Google Icons (Material Design)-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/my_script.js"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
-    body {
-      background-color: white;
+    nav {
       font-family: 'Patrick Hand';
-      font-size: 20px;
+      font-size: 50px;
+      text-shadow: 1px 1px 1px rgb(218, 218, 218);
+    }
+
+    body {
+      font-family: 'Patrick Hand';
+      background-image: url(images/foodbackground.PNG);
+      background-size: cover;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #BA68C8;
+    }
+
+    .profile-button {
+      background: rgb(0, 168, 28);
+      box-shadow: none;
+      border: none
+    }
+
+    .profile-button:hover {
+      background: rgb(86, 241, 112);
+    }
+
+    .profile-button:focus {
+      background: #682773;
+      box-shadow: none
+    }
+
+    .profile-button:active {
+      background: rgb(86, 241, 112);
+      box-shadow: none
+    }
+
+    .back:hover {
+      color: #682773;
+      cursor: pointer
+    }
+
+    .labels {
+      font-size: 11px
+    }
+
+    .add-experience:hover {
+      background: rgb(0, 168, 28);
+      color: #fff;
+      cursor: pointer;
+      border: solid 1px #BA68C8
     }
 
     .container {
@@ -29,7 +89,7 @@
     }
 
     header {
-      background: green;
+      background: whitesmoke;
     }
 
     header::after {
@@ -40,67 +100,81 @@
 
     .logo {
       float: left;
-      height: 20%;
-      width: 20%;
+      height: 15%;
+      width: 15%;
       padding: 10px 0;
 
     }
 
     nav {
-      float: left;
-      color: white;
+      float: right;
     }
 
-    h1 {
-      font-family: 'Times New Roman', Times, serif;
+    *.signheader {
+      background-color: lightgreen;
+      padding: 1.2em;
       text-align: center;
-      color: green;
+      width: 800px;
+      font-size: 40px;
+      margin: 0px auto;
+      width: 50%;
+      border: 2px solid #298;
+      border-radius: 5px 10px 15px 20px;
     }
 
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
 
+    nav li {
+      display: inline-block;
+      margin-left: 80px;
+      padding-top: 15px;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 2vw;
+    }
+
+    nav a:hover {
+      color: black;
+      background-color: whitesmoke;
+      background-image: radial-gradient(lightgreen, whitesmoke);
+    }
   </style>
-
-  <!-- Firebase 8 CDNs-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-
-  <!-- link to the api keys for the firebase project -->
-  <script src="scripts/my_script.js"></script>
-
 </head>
 
 <body>
-
   <header>
-
     <div class="container">
-
-      <img src="bowl.png" alt="logo" class="logo">
-
+      <img src="images/bowl.png" alt="logo" class="logo">
       <nav>
-        <h2>FitMeal</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">Profile</a></li>
+        </ul>
       </nav>
-
-
     </div>
   </header>
   <br><br>
-  
-  <h1> Sign in to your <b>FitMeal</b> Account </h1>
+
+  <div class="signheader"> Sign in to your <b>FitMeal</b> Account </div>
   <br>
 
   <div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
+  <br><br>
 
   <!-- JS files -->
   <script>
-    // Initializing the firebase UI widget using firebase.
+    // Initialize the FirebaseUI Widget using Firebase.
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     var uiConfig = {
       callbacks: {
@@ -108,7 +182,26 @@
           // User successfully signed in.
           // Return type determines whether we continue the redirect automatically
           // or whether we leave that to developer to handle.
-          return true;
+          var user = authResult.user;
+
+          //determine if the user is new or not
+          if (authResult.additionalUserInfo.isNewUser) {
+            db.collection("users").doc(user.uid).set({
+                name: user.displayName,
+                email: user.email
+              }).then(function () {
+                window.location.assign("main.html");
+              })
+              .catch(function (error) {
+                console.log("error is" + error);
+              })
+
+          } else {
+            return true;
+
+          }
+
+          return false;
         },
         uiShown: function () {
           // The widget is rendered.
@@ -120,13 +213,9 @@
       signInFlow: 'popup',
       signInSuccessUrl: 'main.html',
       signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
+
         //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
       ],
       // Terms of service url.
       tosUrl: '<your-tos-url>',
@@ -136,7 +225,6 @@
 
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
-
   </script>
 </body>
 

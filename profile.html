@@ -27,12 +27,13 @@
 
     body {
       font-family: 'Patrick Hand';
-      background: rgb(63, 218, 88)
+      background-image: url(images/foodbackground.PNG);
+      background-size: cover;
     }
 
     .form-control:focus {
       box-shadow: none;
-      border-color: #BA68C8
+      border-color: #BA68C8;
     }
 
     .profile-button {
@@ -88,8 +89,8 @@
 
     .logo {
       float: left;
-      height: 20%;
-      width: 20%;
+      height: 15%;
+      width: 15%;
       padding: 10px 0;
 
     }
@@ -115,12 +116,23 @@
       text-decoration: none;
       text-transform: uppercase;
       font-weight: 600;
-      font-size: 25px;
+      font-size: 2vw;
     }
+
+    nav a:hover {
+      color:black;
+      background-color: whitesmoke;
+      background-image: radial-gradient(lightgreen, whitesmoke);
+    }
+
+
+
   </style>
 
   <!-- link to all the api keys for the project -->
   <script src="scripts/my_script.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 
 </head>
 
@@ -131,7 +143,7 @@
 
     <div class="container">
 
-      <img src="bowl.png" alt="logo" class="logo">
+      <img src="images/bowl.png" alt="logo" class="logo">
 
       <nav>
         <ul>
@@ -148,7 +160,7 @@
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-            width="150px" src="..."><span class="font-weight-bold">Name</span><span
+            width="150px" src="images/icon.png"><span class="font-weight-bold" style="padding: 4%;">Name</span><span
             class="text-black-50">name@something.com</span><span> </span>
         </div>
       </div>
@@ -157,39 +169,132 @@
           <div class="d-flex justify-content-between align-items-center mb-3">
             <h2 class="text-right">Profile Settings</h2>
           </div>
-          <div class="row mt-2">
-            <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control"
-                placeholder="First Name" value=""></div>
-            <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control"
-                value="" placeholder="Last Name"></div>
-          </div>
-          <div class="row mt-3">
-            <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control"
-                placeholder="Email ID" value=""></div>
-            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control"
-                placeholder="Phone Number" value=""></div>
-            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control"
-                placeholder="Address Line 1" value=""></div>
-            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control"
-                placeholder="Address Line 2" value=""></div>
-            <div class="col-md-12"><label class="labels">Postal Code</label><input type="text" class="form-control"
-                placeholder="Postal Code" value=""></div>
-          </div>
-          <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save
-              Profile</button></div>
+          <div class="container">
+            <form>
+                <fieldset class="mb-3" id="personalInfoFields" disabled>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="nameInput" class="form-control" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" id="schoolInput" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Backup Email (Optional)</label>
+                        <input type="text" id="cityInput" class="form-control" placeholder="Backup email">
+                    </div>
+                </fieldset>
+                <div class="d-flex justify-content-end mt-5">
+                    <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                    <span style="width: 10px"></span>
+                    <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
+                </div>
+            </form>
+        </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
-          <div class="d-flex justify-content-between align-items-center experience"><span>Edit Preferences</span><span
-              class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Survey</span></div><br>
-          <div class="col-md-12"><label class="labels">SOMETHING</label></div>
+          <a href="quiz.html">
+          <button type="button" class="btn btn-success">Edit diet restrictions/preferences</button><br>
+          </a>
           <br>
-          <div class="col-md-12"><label class="labels">FAQ DROPDOWN</label></div>
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              FAQ
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <br>
+          <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Contact Us
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+          <br>
+          <button type="button" class="btn btn-success">Log Out</button>
+          <div class="col-md-12"><label class="labels">
+          </label></div>
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    var currentUser;
+
+    function populateInfo() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid)
+          //get the document for current user.
+          currentUser.get()
+            .then(userDoc => {
+              //get the data fields of the user
+              var userName = userDoc.data().name;
+              var userSchool = userDoc.data().school;
+              var userCity = userDoc.data().city;
+
+              //if the data fields are not empty, then write them in to the form.
+              if (userName != null) {
+                document.getElementById("nameInput").value = userName;
+              }
+              if (userSchool != null) {
+                document.getElementById("schoolInput").value = userSchool;
+              }
+              if (userCity != null) {
+                document.getElementById("cityInput").value = userCity;
+              }
+            })
+        } else {
+          // No user is signed in.
+          console.log("No user is signed in");
+        }
+      });
+    }
+
+    //call the function to run it 
+    populateInfo();
+
+    function editUserInfo() {
+      document.getElementById("personalInfoFields").disabled = false;
+    }
+
+    function saveUserInfo() {
+      name = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
+      school = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
+      city = document.getElementById('cityInput').value;
+
+      currentUser.update({
+        name: name,
+        school: school,
+        city: city
+      })
+
+      document.getElementById('personalInfoFields').disabled = true;
+
+
+    }
+  </script>
+
+
+
+
 </body>
 
 </html>

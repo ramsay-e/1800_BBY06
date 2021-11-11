@@ -134,7 +134,13 @@
       justify-content: center;
     }
 
-
+    @media screen and (max-width: 700px){
+    header {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 
   </style>
 
@@ -160,59 +166,60 @@
 
   <div class="container rounded bg-white mt-5 mb-5">
     <div class="row justify-content-center">
+      <div class="col">
       <h1 style="font-size: 6vw;">Welcome to <span style="color: green;">Fitmeal</span></h1>
-      <h1 style="text-decoration: underline;"> Do you have any food or diet restrictions?</h1>
+      <h1 style="text-decoration: underline; color: darkgreen;"> Do you have any food or diet restrictions?</h1>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Vegetarian
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               Vegan
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Pescatarian
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               Gluten-Free
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
               Lactose-Free
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               Keto
             </label>
           </div>
-          <h1 style="text-decoration: underline;">Do you have any food or diet preferences?</h1>
+          <h1 style="text-decoration: underline;  color: darkgreen;">Do you have any food or diet preferences?</h1>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               Spicy
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               High Protein
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
             <label class="form-check-label" for="flexRadioDefault2">
               Snack/Appetizer
             </label>
@@ -222,6 +229,7 @@
           <span style="width: 10px"></span>
           <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
         </div>
+    </div>
     </div>
   </div>
 

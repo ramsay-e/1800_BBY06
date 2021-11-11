@@ -125,7 +125,33 @@
       background-image: radial-gradient(lightgreen, whitesmoke);
     }
 
+    .collapsible {
+  color: white;
+  cursor: pointer;
+  padding: 5%;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
 
+.content {
+  padding: 0 5%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+
+
+}
+
+@media screen and (max-width: 700px){
+    header {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 
   </style>
 
@@ -148,9 +174,9 @@
 
       <nav>
         <ul>
-          <li><a href="#"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
-          <li><a href="#"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
-          <li><a href="#"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a></li>
+          <li><a href="main.html"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
+          <li><a href="menu.html"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
+          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a></li>
         </ul>
       </nav>
 
@@ -168,7 +194,7 @@
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
           <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="text-right">Profile Settings</h2>
+            <h1 class="text-right" style="font-size: 250%;">Profile Settings</h1>
           </div>
           <div class="container">
             <form>
@@ -198,30 +224,34 @@
       <div class="col-md-4">
         <div class="p-3 py-5">
           <a href="quiz.html">
-          <button type="button" class="btn btn-success" style="font-size: 130%; background-image: linear-gradient(rgb(0, 122, 0), rgb(0, 163, 0));"><i class="material-icons" style="font-size: 100%;">edit</i>Edit diet restrictions/preferences</button><br>
+          <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">edit</i>Edit diet restrictions/preferences</button><br>
           </a>
           <br>
-          <p>
-            <button class="btn btn-success" style="font-size: 130%; background-image: radial-gradientwhite, rgb(1, 138, 1));" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Button with data-bs-target
-            </button>
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-              Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-            </div>
+          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">question_answer</i> FAQ<i class="material-icons" style="font-size: 100%; float: right;">expand_more</i></button>
+          <div class="content">
+            <h4><b style="color: darkgreen;">Q:</b> Are my restriction and preference choices permanent?</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> No, you can change your restrictions and preferences with the "Edit diet restrictions/preferences" button above.</h4>
+            <h4><b style="color: darkgreen;">Q:</b> How do I log out?</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Log Out" button that allows you to log out and access another account.</h4>
+            <h4><b style="color: darkgreen;">Q:</b> Why do I have a mix of my restrictions and preferences?</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> We found that restrictions and preferences have large overlaps that would make multiple selections of the same category obsolete. For example, if you chose Vegan and Pescatarian, the Vegan concept would overide the other. In this case, multiple selections of restrictions and/or preferences displays and ensemble of all possible recipes.</h4>
+            <h4><b style="color: darkgreen;">Q:</b> I have questions regarding the app and would like to speak to a representative, how can I do such?</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Contact Us" collapsible menu that displays the teams contact information. Feel free to send us an email!</h4>
           </div>
           <br>
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" style="font-size: 130%;" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false"><i class="material-icons" style="font-size: 100%;">contacts</i>
-              Contact Us
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">contacts</i> Contact Us<i class="material-icons" style="font-size: 100%; float: right;">expand_more</i></button>
+          <div class="content">
+            <h4 style="text-decoration: underline; color: darkgreen;">Project Manager</h4>
+            <h4 style="margin-left: 5%;">Mitchell Watson</h4>
+            <h4 style="margin-left: 5%;">mwatson75@my.bcit.ca</h4>
+            <br>
+            <h4 style="text-decoration: underline; color: darkgreen;">Coder</h4>
+            <h4 style="margin-left: 5%;">Ramsay Elhalhuli</h4>
+            <h4 style="margin-left: 5%;">email</h4>
+            <br>
+            <h4 style="text-decoration: underline; color: darkgreen;">Designer</h4>
+            <h4 style="margin-left: 5%;">Sunreet Sidhu</h4>
+            <h4 style="margin-left: 5%;">sunreetsidhu20@gmail.com</h4>
           </div>
           <br>
           <a href="login.html">
@@ -235,64 +265,21 @@
   </div>
 
   <script>
-    var currentUser;
-
-    function populateInfo() {
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("users").doc(user.uid)
-          //get the document for current user.
-          currentUser.get()
-            .then(userDoc => {
-              //get the data fields of the user
-              var userName = userDoc.data().name;
-              var userSchool = userDoc.data().school;
-              var userCity = userDoc.data().city;
-
-              //if the data fields are not empty, then write them in to the form.
-              if (userName != null) {
-                document.getElementById("nameInput").value = userName;
-              }
-              if (userSchool != null) {
-                document.getElementById("schoolInput").value = userSchool;
-              }
-              if (userCity != null) {
-                document.getElementById("cityInput").value = userCity;
-              }
-            })
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
         } else {
-          // No user is signed in.
-          console.log("No user is signed in");
-        }
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
       });
     }
-
-    //call the function to run it 
-    populateInfo();
-
-    function editUserInfo() {
-      document.getElementById("personalInfoFields").disabled = false;
-    }
-
-    function saveUserInfo() {
-      name = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-      school = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
-      city = document.getElementById('cityInput').value;
-
-      currentUser.update({
-        name: name,
-        school: school,
-        city: city
-      })
-
-      document.getElementById('personalInfoFields').disabled = true;
-
-
-    }
-  </script>
+    </script>
 
 
 

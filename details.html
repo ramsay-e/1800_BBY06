@@ -159,6 +159,7 @@
 
 }
 
+
 @media screen and (max-width: 700px){
     header {
       position: fixed;
@@ -175,18 +176,6 @@
 </head>
 
 <body>
-
-  <template id=CardTemplate>
-    <div class="card py-2 mx-2" style="width: 18rem;">
-      <img class="card-image" src=" ..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-          card's content.</p>
-        <a class="card-href" href="#" class="btn btn-primary">Get Details</a>
-      </div>
-    </div>
-  </template>
 
 
   <header>
@@ -206,71 +195,64 @@
     </div>
   </header>
 
+  <div class="container rounded bg-white mt-5 mb-5">
+
+    
+      <img class="details-img" src="..." class="card-img-top" alt="...">
+      <h1 id="details-name"></h1>
+      <h3 id="details-serves"></h3>
+      <h3 id="details-prep"></h3>
+      <h2 id="details-description"></h2>
+      <h2 id="details-recipe"></h2>
+      <h2 id="details-ingredients"></h2>
+      <iframe id="details-youtube" width="420" height="345" src="...">
+      </iframe>
+      
 
 
-  <div class="container">
-    <h1>Your Vegan gallery</h1>
-    <!-- Here is container for cards  -->
-    <div class="container">
-      <div id="vegan_high-protein-go-here" class="row row-cols-auto">
-  
-      </div>
-    </div>
+
+
+
   </div>
   
 
 
   <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight){
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } 
-      });
-    }
 
+function showDetails() {
+            // create a URL object
+            let params = new URL(window.location.href);
+            let urlstring = params.searchParams.get("collection");   //parse "collection"
+            let patharray = urlstring.split('?');
+            // console.log(patharray[1].replace('id=',''));}
+              db.collection(patharray[0]).doc(patharray[1].replace('id=','')).get().then(userDoc => { 
+        //         // querySnapshot.forEach(function (doc) {
+                  let name = userDoc.data().Name;
+                  let recipe = userDoc.data().Recipe;
+                  let description = userDoc.data().Description;
+                  let ingredients = userDoc.data().Ingredients;
+                  let prep = userDoc.data().Prep;
+                  let serves = userDoc.data().Serves;
+                  let youtube = userDoc.data().Youtube; 
 
-    function displayCards(collection) {
-                let CardTemplate = document.getElementById("CardTemplate");
+                  console.log(name);
+                  document.getElementById("details-name").innerHTML = name;
+                  document.getElementById("details-recipe").innerHTML = recipe;
+                  document.getElementById("details-description").innerHTML = description;
+                  document.getElementById("details-ingredients").innerHTML = ingredients;
+                  document.getElementById("details-serves").innerHTML = serves;
+                  document.getElementById("details-prep").innerHTML = prep;
+                  document.getElementById("details-youtube").innerHTML = youtube;
+                  document.getElementById('details-img').src = "./images/" + name + ".jpg"; 
+                  newcard.querySelector('.details-img').src = "./images/" + name + ".jpg";  //hikes.jpg
 
-                db.collection(collection).get()
-                    .then(snap => {
-                        var i = 1;
-                        snap.forEach(doc => {    //iterate thru each doc
-                            var title = doc.data().Name;
-                            var details = doc.data().Description;
-                            let newcard = CardTemplate.content.cloneNode(true);
+              });
 
-                            //update title and text and image
-                            newcard.querySelector('.card-title').innerHTML = title;
-                            newcard.querySelector('.card-text').innerHTML = details;
-                            newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg";  //hikes.jpg
-
-                            newcard.querySelector('.card-href').href = "details.html?collection="+collection+"?id=" + doc.id;    //firestore doc ID
-
-                            //give unique ids to all elements for future use
-                            newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                            newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                            newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-                            //attach to gallery
-                            document.getElementById(collection + "-go-here").appendChild(newcard);
-                        })
-                    })
-            }
-
-            displayCards("vegan_high-protein");
-            //displayCards("heros");
-            //displayCards("countries");
-            //displayCards("bikes");
-
+            // let message = "name is: " + name;        //build message to display
+        //     // message += "Document id is:  " + id;
+            // document.getElementById("details-go-here").innerHTML = message;
+        }
+        showDetails();
     </script>
 
 

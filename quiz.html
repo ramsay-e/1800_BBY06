@@ -12,149 +12,48 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/quiz_style.css">
 
   <!-- Google Icons (Material Design)-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+  <!-- Link to the api keys for your firebase project -->
+  <script src="./scripts/my_script.js"></script>
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-
-    nav {
-      font-family: 'Patrick Hand';
-      font-size: 50px;
-      text-shadow: 1px 1px 1px rgb(218, 218, 218);
-    }
-
     body {
       font-family: 'Patrick Hand';
       background-image: url(images/foodbackground.PNG);
       background-size: cover;
     }
-
-    .form-control:focus {
-      box-shadow: none;
-      border-color: #BA68C8;
-    }
-
-    .profile-button {
-      background: rgb(0, 168, 28);
-      box-shadow: none;
-      border: none
-    }
-
-    .profile-button:hover {
-      background: rgb(86, 241, 112);
-    }
-
-    .profile-button:focus {
-      background: #682773;
-      box-shadow: none
-    }
-
-    .profile-button:active {
-      background: rgb(86, 241, 112);
-      box-shadow: none
-    }
-
-    .back:hover {
-      color: #682773;
-      cursor: pointer
-    }
-
-    .labels {
-      font-size: 11px
-    }
-
-    .add-experience:hover {
-      background: rgb(0, 168, 28);
-      color: #fff;
-      cursor: pointer;
-      border: solid 1px #BA68C8
-    }
-
-    .container {
-      width: 90%;
-      margin: auto;
-    }
-
-    header {
-      background: whitesmoke;
-    }
-
-    header::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    .logo {
-      height: 15%;
-      width: 15%;
-      padding: 10px 0;
-
-    }
-
-    nav {
-      float: right;
-    }
-
-    nav ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 80px;
-      padding-top: 15px;
-    }
-
-    nav a {
-      color: black;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 2vw;
-    }
-
-    nav a:hover {
-      color: black;
-      background-color: whitesmoke;
-      background-image: radial-gradient(lightgreen, whitesmoke);
-    }
-
-    label {
-      font-size: 2vw;
-      color: black;
-      text-align: center;
-    }
-
-    *.form-check-input {
-      justify-content: center;
-    }
-
-    @media screen and (max-width: 700px) {
-      header {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-    }
   </style>
-
-  <!-- link to all the api keys for the project -->
-  <script src="scripts/my_script.js"></script>
 </head>
 
 <body>
-
   <header>
-
     <div class="container">
       <img src="images/bowl.png" alt="logo" class="logo">
-    </div>
 
+      <nav>
+        <ul>
+          <li><a href="main.html"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
+          <li><a href="menu.html"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
+          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a>
+          </li>
+        </ul>
+      </nav>
+
+    </div>
   </header>
 
   <div class="container rounded bg-white mt-5 mb-5">
@@ -162,66 +61,72 @@
       <div class="col">
         <h1 style="font-size: 6vw;">Welcome to <span style="color: green;">Fitmeal</span></h1>
         <h1 style="text-decoration: underline; color: darkgreen;"> Do you have any food or diet restrictions?</h1>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            Vegetarian
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
-          <label class="form-check-label" for="flexRadioDefault2">
-            Vegan
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault3">
-          <label class="form-check-label" for="flexRadioDefault3">
-            Pescatarian
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault4">
-          <label class="form-check-label" for="flexRadioDefault4">
-            Gluten-Free
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault5">
-          <label class="form-check-label" for="flexRadioDefault5">
-            Lactose-Free
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault6">
-          <label class="form-check-label" for="flexRadioDefault6">
-            Keto
-          </label>
-        </div>
-        <h1 style="text-decoration: underline;  color: darkgreen;">Do you have any food or diet preferences?</h1>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault7">
-          <label class="form-check-label" for="flexRadioDefault7">
-            Spicy
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault8">
-          <label class="form-check-label" for="flexRadioDefault8">
-            High Protein
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault9">
-          <label class="form-check-label" for="flexRadioDefault9">
-            Snack/Appetizer
-          </label>
-        </div>
-        <div class="d-flex justify-content-center mt-5">
-          <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-          <span style="width: 10px"></span>
-          <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
-        </div>
+
+        <!----------------------- Checklist form for quiz details ---------------------->
+        <form>
+          <fieldset class="mb-3" id="quizFields" disabled>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Vegetarian
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault2">
+              <label class="form-check-label" for="flexRadioDefault2">
+                Vegan
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault3">
+              <label class="form-check-label" for="flexRadioDefault3">
+                Pescatarian
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault4">
+              <label class="form-check-label" for="flexRadioDefault4">
+                Gluten-Free
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault5">
+              <label class="form-check-label" for="flexRadioDefault5">
+                Lactose-Free
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault6">
+              <label class="form-check-label" for="flexRadioDefault6">
+                Keto
+              </label>
+            </div>
+            <h1 style="text-decoration: underline;  color: darkgreen;">Do you have any food or diet preferences?</h1>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault7">
+              <label class="form-check-label" for="flexRadioDefault7">
+                Spicy
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault8">
+              <label class="form-check-label" for="flexRadioDefault8">
+                High Protein
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault9">
+              <label class="form-check-label" for="flexRadioDefault9">
+                Snack/Appetizer
+              </label>
+            </div>
+          </fieldset>
+          <div class="d-flex justify-content-center mt-5">
+            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+            <span style="width: 10px"></span>
+            <button type="button" class="btn btn-success" onclick="saveUserInfo()">Save</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -236,24 +141,47 @@
 
           //go to the correct user document by referencing to the user uid
           currentUser = db.collection("users").doc(user.uid)
-
           //get the document for current user.
           currentUser.get()
             .then(userDoc => {
               //get the data fields of the user
-              var userName = userDoc.data().name;
-              var userSchool = userDoc.data().school;
-              var userCity = userDoc.data().city;
+              var quiz1 = userDoc.data().vegetarian;
+              var quiz2 = userDoc.data().vegan;
+              var quiz3 = userDoc.data().pescatarian;
+              var quiz4 = userDoc.data().gluten_free;
+              var quiz5 = userDoc.data().lactose_free;
+              var quiz6 = userDoc.data().keto;
+              var quiz7 = userDoc.data().spicy;
+              var quiz8 = userDoc.data().protein;
+              var quiz9 = userDoc.data().snack;
 
               //if the data fields are not empty, then write them in to the form.
-              if (userName != null) {
-                document.getElementById("nameInput").value = userName;
+              if (quiz1 != null) {
+                document.getElementById("flexRadioDefault1").value = quiz1;
               }
-              if (userSchool != null) {
-                document.getElementById("schoolInput").value = userSchool;
+              if (quiz2 != null) {
+                document.getElementById("flexRadioDefault2").value = quiz2;
               }
-              if (userCity != null) {
-                document.getElementById("cityInput").value = userCity;
+              if (quiz3 != null) {
+                document.getElementById("flexRadioDefault3").value = quiz3;
+              }
+              if (quiz4 != null) {
+                document.getElementById("flexRadioDefault4").value = quiz4;
+              }
+              if (quiz5 != null) {
+                document.getElementById("flexRadioDefault5").value = quiz5;
+              }
+              if (quiz6 != null) {
+                document.getElementById("flexRadioDefault6").value = quiz6;
+              }
+              if (quiz7 != null) {
+                document.getElementById("flexRadioDefault7").value = quiz7;
+              }
+              if (quiz8 != null) {
+                document.getElementById("flexRadioDefault8").value = quiz8;
+              }
+              if (quiz9 != null) {
+                document.getElementById("flexRadioDefault9").value = quiz9;
               }
             })
         } else {
@@ -263,23 +191,39 @@
       });
     }
 
-    //call the function to run it 
+    //call the function to run it
     populateInfo();
 
     function editUserInfo() {
-      document.getElementById("personalInfoFields").disabled = false;
+      //Enable the form fields
+      document.getElementById('quizFields').disabled = false;
     }
 
     function saveUserInfo() {
-      name = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
-      school = document.getElementById('schoolInput').value; //get the value of the field with id="schoolInput"
-      city = document.getElementById('cityInput').value;
+      quiz1 = document.getElementById('flexRadioDefault1').value; //get the value of the field with id="nameInput"
+      quiz2 = document.getElementById('flexRadioDefault2').value; //get the value of the field with id="schoolInput"
+      quiz3 = document.getElementById('flexRadioDefault3').value;
+      quiz4 = document.getElementById('flexRadioDefault4').value;
+      quiz5 = document.getElementById('flexRadioDefault5').value;
+      quiz6 = document.getElementById('flexRadioDefault6').value;
+      quiz7 = document.getElementById('flexRadioDefault7').value;
+      quiz8 = document.getElementById('flexRadioDefault8').value;
+      quiz9 = document.getElementById('flexRadioDefault9').value;
 
       currentUser.update({
-        name: name,
-        school: school,
-        city: city
-      })
+          vegetarian: quiz1,
+          vegan: quiz2,
+          pescatarian: quiz3,
+          gluten_free: quiz4,
+          lactose_free: quiz5,
+          keto: quiz6,
+          spicy: quiz7,
+          protein: quiz8,
+          snack: quiz9
+        })
+        .then(() => {
+          console.log("Document successfully updated!");
+        })
 
       document.getElementById('personalInfoFields').disabled = true;
     }

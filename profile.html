@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <title>Profile BBY06</title>
 
   <!-- Required meta tags -->
@@ -15,6 +14,9 @@
 
   <!-- Google Icons (Material Design)-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- link to all the api keys for the project -->
+  <script src="scripts/my_script.js"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
@@ -120,66 +122,52 @@
     }
 
     nav a:hover {
-      color:black;
+      color: black;
       background-color: whitesmoke;
       background-image: radial-gradient(lightgreen, whitesmoke);
     }
 
     .collapsible {
-  color: white;
-  cursor: pointer;
-  padding: 5%;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-}
-
-.content {
-  padding: 0 5%;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
-
-
-}
-
-@media screen and (max-width: 700px){
-    header {
-      position: fixed;
-      bottom: 0;
+      color: white;
+      cursor: pointer;
+      padding: 5%;
       width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
     }
-  }
 
+    .content {
+      padding: 0 5%;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+      background-color: #f1f1f1;
+    }
+
+    @media screen and (max-width: 700px) {
+      header {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    }
   </style>
-
-  <!-- link to all the api keys for the project -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="scripts/my_script.js"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
 
 </head>
 
 <body>
-
-
   <header>
-
     <div class="container">
-
       <img src="images/bowl.png" alt="logo" class="logo">
-
       <nav>
         <ul>
           <li><a href="main.html"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
           <li><a href="menu.html"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
-          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a></li>
+          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a>
+          </li>
         </ul>
       </nav>
-
     </div>
   </header>
 
@@ -198,48 +186,62 @@
           </div>
           <div class="container">
             <form>
-                <fieldset class="mb-3" id="personalInfoFields" disabled>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" id="nameInput" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" id="schoolInput" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label>Backup Email (Optional)</label>
-                        <input type="text" id="cityInput" class="form-control" placeholder="Backup email">
-                    </div>
-                </fieldset>
-                <div class="d-flex justify-content-end mt-5">
-                    <button type="button" class="btn btn-secondary" style="font-size: 130%;" onclick="editUserInfo()">Edit</button>
-                    <span style="width: 10px"></span>
-                    <button type="button" class="btn btn-success" style="font-size: 130%;" onclick="saveUserInfo()">Save</button>
+              <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" id="nameInput" class="form-control" placeholder="Name">
                 </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="text" id="schoolInput" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-group">
+                  <label>Backup Email (Optional)</label>
+                  <input type="text" id="cityInput" class="form-control" placeholder="Backup email">
+                </div>
+              </fieldset>
+              <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" style="font-size: 130%;"
+                  onclick="editUserInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-success" style="font-size: 130%;"
+                  onclick="saveUserInfo()">Save</button>
+              </div>
             </form>
-        </div>
+          </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="p-3 py-5">
           <a href="quiz.html">
-          <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">edit</i>Edit diet restrictions/preferences</button><br>
+            <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons"
+                style="font-size: 100%;">edit</i>Edit diet restrictions/preferences</button><br>
           </a>
           <br>
-          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">question_answer</i> FAQ<i class="material-icons" style="font-size: 100%; float: right;">expand_more</i></button>
+          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons"
+              style="font-size: 100%;">question_answer</i> FAQ<i class="material-icons"
+              style="font-size: 100%; float: right;">expand_more</i></button>
           <div class="content">
             <h4><b style="color: darkgreen;">Q:</b> Are my restriction and preference choices permanent?</h4>
-            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> No, you can change your restrictions and preferences with the "Edit diet restrictions/preferences" button above.</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> No, you can change your restrictions and
+              preferences with the "Edit diet restrictions/preferences" button above.</h4>
             <h4><b style="color: darkgreen;">Q:</b> How do I log out?</h4>
-            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Log Out" button that allows you to log out and access another account.</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Log Out" button that
+              allows you to log out and access another account.</h4>
             <h4><b style="color: darkgreen;">Q:</b> Why do I have a mix of my restrictions and preferences?</h4>
-            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> We found that restrictions and preferences have large overlaps that would make multiple selections of the same category obsolete. For example, if you chose Vegan and Pescatarian, the Vegan concept would overide the other. In this case, multiple selections of restrictions and/or preferences displays and ensemble of all possible recipes.</h4>
-            <h4><b style="color: darkgreen;">Q:</b> I have questions regarding the app and would like to speak to a representative, how can I do such?</h4>
-            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Contact Us" collapsible menu that displays the teams contact information. Feel free to send us an email!</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> We found that restrictions and preferences
+              have large overlaps that would make multiple selections of the same category obsolete. For example, if you
+              chose Vegan and Pescatarian, the Vegan concept would overide the other. In this case, multiple selections
+              of restrictions and/or preferences displays and ensemble of all possible recipes.</h4>
+            <h4><b style="color: darkgreen;">Q:</b> I have questions regarding the app and would like to speak to a
+              representative, how can I do such?</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Contact Us" collapsible
+              menu that displays the teams contact information. Feel free to send us an email!</h4>
           </div>
           <br>
-          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">contacts</i> Contact Us<i class="material-icons" style="font-size: 100%; float: right;">expand_more</i></button>
+          <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons"
+              style="font-size: 100%;">contacts</i> Contact Us<i class="material-icons"
+              style="font-size: 100%; float: right;">expand_more</i></button>
           <div class="content">
             <h4 style="text-decoration: underline; color: darkgreen;">Project Manager</h4>
             <h4 style="margin-left: 5%;">Mitchell Watson</h4>
@@ -247,7 +249,7 @@
             <br>
             <h4 style="text-decoration: underline; color: darkgreen;">Coder</h4>
             <h4 style="margin-left: 5%;">Ramsay Elhalhuli</h4>
-            <h4 style="margin-left: 5%;">email</h4>
+            <h4 style="margin-left: 5%;">relhalhuli@my.bcit.ca</h4>
             <br>
             <h4 style="text-decoration: underline; color: darkgreen;">Designer</h4>
             <h4 style="margin-left: 5%;">Sunreet Sidhu</h4>
@@ -255,10 +257,11 @@
           </div>
           <br>
           <a href="login.html">
-          <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons" style="font-size: 100%;">logout</i> Log Out</button>
+            <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons"
+                style="font-size: 100%;">logout</i> Log Out</button>
           </a>
           <div class="col-md-12"><label class="labels">
-          </label></div>
+            </label></div>
         </div>
       </div>
     </div>
@@ -267,23 +270,19 @@
   <script>
     var coll = document.getElementsByClassName("collapsible");
     var i;
-    
+
     for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function() {
+      coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
         var content = this.nextElementSibling;
-        if (content.style.maxHeight){
+        if (content.style.maxHeight) {
           content.style.maxHeight = null;
         } else {
           content.style.maxHeight = content.scrollHeight + "px";
-        } 
+        }
       });
     }
-    </script>
-
-
-
-
+  </script>
 </body>
 
 </html>

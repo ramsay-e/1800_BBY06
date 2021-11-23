@@ -12,6 +12,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <!-- Firebase 8 CDNs-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
   <!-- Google Icons (Material Design)-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -193,11 +200,11 @@
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="text" id="schoolInput" class="form-control" placeholder="Email">
+                  <input type="text" id="emailInput" class="form-control" placeholder="Email">
                 </div>
                 <div class="form-group">
-                  <label>Backup Email (Optional)</label>
-                  <input type="text" id="cityInput" class="form-control" placeholder="Backup email">
+                  <label>Phone</label>
+                  <input type="text" id="phoneInput" class="form-control" placeholder="Phone">
                 </div>
               </fieldset>
               <div class="d-flex justify-content-end mt-5">
@@ -268,6 +275,8 @@
   </div>
 
   <script>
+    var currentUser;
+
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -282,6 +291,66 @@
         }
       });
     }
+
+    function populateInfo() {
+      firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+          //go to the correct user document by referencing to the user uid
+          currentUser = db.collection("users").doc(user.uid)
+          //get the document for current user.
+          currentUser.get()
+            .then(userDoc => {
+              //get the data fields of the user
+              var userName = userDoc.data().name;
+              var userEmail = userDoc.data().email;
+              var userPhone = userDoc.data().phone;
+
+              //if the data fields are not empty, then write them in to the form.
+              if (userName != null) {
+                document.getElementById("nameInput").value = userName;
+              }
+              if (userEmail != null) {
+                document.getElementById("emailInput").value = userEmail;
+              }
+              if (userPhone != null) {
+                document.getElementById("phoneInput").value = userPhone;
+              }
+            })
+        } else {
+          // No user is signed in.
+          console.log("No user is signed in");
+        }
+      });
+    }
+
+    //call the function to run it 
+    populateInfo();
+
+    function editUserInfo() {
+      //Enable the form fields
+      document.getElementById('personalInfoFields').disabled = false;
+    }
+
+    function saveUserInfo() {
+      userName = document.getElementById('nameInput').value;
+      userEmail = document.getElementById('emailInput').value;
+      userPhone = document.getElementById('phoneInput').value;
+
+      currentUser.update({
+        name: userName,
+        email: userEmail,
+        phone: userPhone,
+      })
+        .then(() => {
+          console.log("Document successfully updated!");
+        })
+
+      document.getElementById('personalInfoFields').disabled = true;
+
+    }
+
   </script>
 </body>
 

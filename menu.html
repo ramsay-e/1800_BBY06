@@ -191,13 +191,48 @@
     </div>
   </header>
 
-  <div class="container">
-    <h1>Your Vegan gallery</h1>
+  <div class="container rounded bg-white" style="margin-top: 2%;">
+    <h1 style="color: rgb(0, 128, 0);"><u>Your <span id="gallery" style="text-transform: capitalize;"></span> Menu</u></h1>
+    <br>
     <!-- Here is container for cards  -->
     <div class="container">
-      <div id="vegan_high-protein-go-here" class="row row-cols-auto">
+      <div id="vegan_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="vegan_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="vegan_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="Keto_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="Keto_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="Keto_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="gluten-free_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="gluten-free_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="gluten-free_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="lactose-intolerant_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="lactose-intolerant_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="lactose-intolerant_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="pescatarian_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="pescatarian_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="pescatarian_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="vegetarian_high-protein-go-here" class="row row-cols-auto"></div>
+      <div id="vegetarian_snacks-go-here" class="row row-cols-auto"></div>
+      <div id="vegetarian_spicy-go-here" class="row row-cols-auto"></div>
 
-      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+      <br>
     </div>
   </div>
 
@@ -233,6 +268,10 @@
             newcard.querySelector('.card-text').innerHTML = details;
             newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg"; //hikes.jpg
 
+            let gallery = collection;
+            document.getElementById("gallery").innerHTML = gallery.replace("_", " ").replace("-", " ");
+            
+
             newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
               .id; //firestore doc ID
 
@@ -247,7 +286,7 @@
         })
     }
 
-    displayCards("vegan_high-protein");
+    displayCards("gluten-free_spicy");
     //displayCards("heros");
     //displayCards("countries");
     //displayCards("bikes");

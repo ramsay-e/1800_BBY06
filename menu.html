@@ -84,10 +84,11 @@
     .container {
       width: 90%;
       margin: 0 auto;
+
     }
 
     header {
-      background: whitesmoke;
+      background-color: #6BAA75;
     }
 
     header::after {
@@ -192,7 +193,8 @@
   </header>
 
   <div class="container rounded bg-white" style="margin-top: 2%;">
-    <h1 style="color: rgb(0, 128, 0);"><u>Your <span id="gallery" style="text-transform: capitalize;"></span> Menu</u></h1>
+    <h1 style="color: rgb(0, 128, 0);"><u>Your <span id="gallery" style="text-transform: capitalize;"></span> Menu</u>
+    </h1>
     <br>
     <!-- Here is container for cards  -->
     <div class="container">
@@ -219,19 +221,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
       <br>
     </div>
   </div>
@@ -270,7 +259,7 @@
 
             let gallery = collection;
             document.getElementById("gallery").innerHTML = gallery.replace("_", " ").replace("-", " ");
-            
+
 
             newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
               .id; //firestore doc ID

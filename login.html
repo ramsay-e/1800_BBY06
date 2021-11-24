@@ -86,12 +86,12 @@
     }
 
     .container {
-      width: 90%;
+      width: 70%;
       margin: 0 auto;
     }
 
     header {
-      background: whitesmoke;
+      backdrop-filter: blur(25px);
     }
 
     header::after {
@@ -103,7 +103,7 @@
     .logo {
       float: left;
       height: 15%;
-      width: 15%;
+      width: 20%;
       padding: 10px 0;
 
     }
@@ -113,15 +113,16 @@
     }
 
     *.signheader {
-      background-color: lightgreen;
       padding: 1.2em;
       text-align: center;
       width: 800px;
-      font-size: 40px;
+      font-size: 45px;
       margin: 0px auto;
       width: 50%;
-      border: 2px solid #298;
       border-radius: 5px 10px 15px 20px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      backdrop-filter: blur(25px);
+      
     }
 
     nav ul {
@@ -168,7 +169,7 @@
   </header>
   <br><br>
 
-  <div class="signheader"> Sign in to your <b>FitMeal</b> Account </div>
+  <div class="signheader"> Sign in to your <b><i>FitMeal</i></b> Account </div>
   <br>
 
   <div id="firebaseui-auth-container"></div>

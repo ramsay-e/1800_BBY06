@@ -84,11 +84,10 @@
     .container {
       width: 90%;
       margin: 0 auto;
-
     }
 
     header {
-      background-color: #6BAA75;
+      background: whitesmoke;
     }
 
     header::after {
@@ -193,8 +192,7 @@
   </header>
 
   <div class="container rounded bg-white" style="margin-top: 2%;">
-    <h1 style="color: rgb(0, 128, 0);"><u>Your <span id="gallery" style="text-transform: capitalize;"></span> Menu</u>
-    </h1>
+    <h1 style="color: rgb(0, 128, 0);"><u>Your <span id="gallery" style="text-transform: capitalize;"></span> Menu</u></h1>
     <br>
     <!-- Here is container for cards  -->
     <div class="container">
@@ -216,11 +214,10 @@
       <div id="vegetarian_high-protein-go-here" class="row row-cols-auto"></div>
       <div id="vegetarian_snacks-go-here" class="row row-cols-auto"></div>
       <div id="vegetarian_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="Vegetarian-go-here" class="row row-cols-auto"></div>
+      <div id="Vegan-go-here" class="row row-cols-auto"></div>
 
-
-
-
-
+ 
       <br>
     </div>
   </div>
@@ -259,7 +256,7 @@
 
             let gallery = collection;
             document.getElementById("gallery").innerHTML = gallery.replace("_", " ").replace("-", " ");
-
+            
 
             newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
               .id; //firestore doc ID
@@ -275,10 +272,24 @@
         })
     }
 
-    displayCards("gluten-free_spicy");
-    //displayCards("heros");
-    //displayCards("countries");
-    //displayCards("bikes");
+    firebase.auth().onAuthStateChanged(user => {
+        // Check if user is signed in:
+        if (user) {
+
+          currentUser = db.collection("users").doc(user.uid)
+
+          currentUser.get()
+            .then(userDoc => {
+
+                let values = userDoc.data().values;
+                console.log(values)
+                values.forEach(item => displayCards(item));
+              })
+            }
+          }
+        )
+
+
   </script>
 
 </body>

@@ -56,6 +56,12 @@ body {
     font-size: 35px;
 }
 
+.bg-white {
+    border-style:groove;
+    border-width: 50px;
+    border-color:#105a1d;
+}
+
 #submit {
     text-align: center;
 }
@@ -74,6 +80,56 @@ body {
     cursor: pointer;
 
 }
+#details-name {
+    font-family: 'Cookie', cursive;
+    font-family: 'Great Vibes', cursive;
+    font-size: 100px;
+    color: #750D37;
+    text-align: center;
+  }
+
+  #details-description {
+    font-family: 'Niconne', cursive;
+    font-size: 45px;
+    color: #750D37;
+  }
+
+  #details-serves {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093824;
+  }
+
+  #details-prep_time {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093824;
+  }
+
+  #details-recipe {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093824;
+  }
+
+  #details-ingredients {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093824;
+  }
+
+  #details-nutrients {
+    font-family: 'Times New Roman', Times, serif;
+    color: #093824;
+  }
+
+  h2 {
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    color: #750D37;
+  }
+  h3 {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color:#750D37;
+  }
+
 
 .button {
     background-color: #105a1d;

@@ -26,7 +26,16 @@
   <script src="./scripts/firebaseAPI.js"></script>
 
   <!-- Stylesheet link -->
-  <link rel="stylesheet" href="styles/menu_style.css">
+  <link rel="stylesheet" href="styles/details_style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Great+Vibes&family=Niconne&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -38,15 +47,25 @@
   <div class="container rounded bg-white mt-5 mb-5">
 
     <img class="details-img" src="..." alt="...">
+    <br><br>
     <h1 id="details-name"></h1>
-    <h3 id="details-serves"></h3>
-    <h3 id="details-prep"></h3>
+    <br><br>
+    <h3><b>Serves</b> : <span id="details-serves">
+      </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Prep-time</b>: <span
+        id="details-prep_time"></span></h3>
+    <br>
     <h2 id="details-description"></h2>
-    <h2 id="details-recipe"></h2>
-    <h2 id="details-ingredients"></h2>
+    <br>
+    <h2><b>Recipe</b> <br> <span id="details-recipe"></span></h2>
+    <br>
+    <h2><b>Ingredients</b><br> <span id="details-ingredients"></span></h2>
+    <br>
+    <h2><b>Nutrients</b><br> <span id="details-nutrients"></span></h2>
+    <br>
     <iframe id="details-youtube" width="420" height="345" src="...">
     </iframe>
   </div>
+  <br>
 
   <nav class="nav">
     <a href="main.html" class="nav__link">
@@ -90,7 +109,7 @@
         document.getElementById("details-prep").innerHTML = prep;
         document.getElementById("details-youtube").innerHTML = youtube;
         document.getElementById('details-img').src = "./images/" + name + ".jpg";
-        newcard.querySelector('.details-img').src = "./images/" + name + ".jpg"; //hikes.jpg
+        newcard.querySelector('.details-img').src = "./images/" + name + ".jpg"; 
 
       });
       // let message = "name is: " + name;        //build message to display

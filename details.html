@@ -52,7 +52,7 @@
     <br><br>
     <h3><b>Serves</b> : <span id="details-serves">
       </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Prep-time</b>: <span
-        id="details-prep_time"></span></h3>
+        id="details-Prep_time"></span></h3>
     <br>
     <h2 id="details-description"></h2>
     <br>
@@ -60,10 +60,10 @@
     <br>
     <h2><b>Ingredients</b><br> <span id="details-ingredients"></span></h2>
     <br>
-    <h2><b>Nutrients</b><br> <span id="details-nutrients"></span></h2>
+    <h2><b>Nutrients</b><br> <span id="Nutrients"></span></h2>
     <br>
     <!--iframe id="details-youtube" width="420" height="345" src="...">
-    </iframe--> 
+    </iframe-->
   </div>
   <br>
 
@@ -90,16 +90,14 @@
       let patharray = urlstring.split('?');
       // console.log(patharray[1].replace('id=',''));}
       db.collection(patharray[0]).doc(patharray[1].replace('id=', '')).get().then(userDoc => {
-        //         // querySnapshot.forEach(function (doc) {
         let name = userDoc.data().Name;
         let recipe = userDoc.data().Recipe;
         let description = userDoc.data().Description;
         let ingredients = userDoc.data().Ingredients;
-        let prep = userDoc.data().Prep;
+        let prep_time = userDoc.data().Prep_time;
         let serves = userDoc.data().Serves;
-        let nutrients = userDoc.data().Nutrients;
-       // let youtube = userDoc.data().Youtube;
-
+        let Nutrients = userDoc.data().Nutrients;
+        // let youtube = userDoc.data().Youtube;
 
         console.log(name);
         document.getElementById("details-name").innerHTML = name;
@@ -111,7 +109,7 @@
         document.getElementById("details-nutrients").innerHTML = nutrients;
         //document.getElementById("details-youtube").innerHTML = youtube;
         document.getElementById('details-img').src = "./images/" + name + ".jpg";
-        newcard.querySelector('.details-img').src = "./images/" + name + ".jpg"; 
+        newcard.querySelector('.details-img').src = "./images/" + name + ".jpg";
 
       });
       // let message = "name is: " + name;        //build message to display

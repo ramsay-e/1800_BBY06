@@ -50,29 +50,17 @@
   </template>
 
   <div class="container rounded bg-white" style="margin-top: 2%;">
-    <h1 style="color: rgb(0, 128, 0);">Your <span id="gallery" style="text-transform: capitalize;"></span> Menu
+    <h1 style="color: rgb(0, 128, 0); font-size: 5vw; text-align: center; margin-top: 2%">Your <span id="gallery"
+        style="text-transform: capitalize;"></span> Menu
     </h1>
     <br>
+
     <!-- Here is container for cards  -->
     <div class="container">
-      <div id="vegan_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="vegan_spicy-go-here" class="row row-cols-auto"></div>
-      <div id="vegan_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="Keto_spicy-go-here" class="row row-cols-auto"></div>
-      <div id="Keto_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="Keto_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="gluten-free_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="gluten-free_spicy-go-here" class="row row-cols-auto"></div>
-      <div id="gluten-free_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="lactose-intolerant_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="lactose-intolerant_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="lactose-intolerant_spicy-go-here" class="row row-cols-auto"></div>
-      <div id="pescatarian_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="pescatarian_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="pescatarian_spicy-go-here" class="row row-cols-auto"></div>
-      <div id="vegetarian_high-protein-go-here" class="row row-cols-auto"></div>
-      <div id="vegetarian_snacks-go-here" class="row row-cols-auto"></div>
-      <div id="vegetarian_spicy-go-here" class="row row-cols-auto"></div>
+      <div id="Keto-go-here" class="row row-cols-auto"></div>
+      <div id="Gluten-Free-go-here" class="row row-cols-auto"></div>
+      <div id="Lactose-Free-go-here" class="row row-cols-auto"></div>
+      <div id="Pescatarian-go-here" class="row row-cols-auto"></div>
       <div id="Vegetarian-go-here" class="row row-cols-auto"></div>
       <div id="Vegan-go-here" class="row row-cols-auto"></div>
       <br>
@@ -124,7 +112,7 @@
             //update title and text and image
             newcard.querySelector('.card-title').innerHTML = title;
             newcard.querySelector('.card-text').innerHTML = details;
-            newcard.querySelector('.card-image').src = "./images/" + collection + ".jpg";
+            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
 
             let gallery = collection;
             document.getElementById("gallery").innerHTML = gallery.replace("_", " ").replace("-", " ");

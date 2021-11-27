@@ -1,1 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+body {
+    font-family: 'Patrick Hand';
+    background-color: #6BAA75;
+}
+
+.collapsible {
+    color: white;
+    cursor: pointer;
+    padding: 5%;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    color: #105a1d;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__icon {
+    font-size: 25px;
+}
+
+.content {
+    padding: 0 5%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+.button {
+    background-color: #105a1d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  a:hover {
+    background-color: rgb(66, 177, 66);
+    color: white;
+  }

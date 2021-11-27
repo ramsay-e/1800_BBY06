@@ -1,1 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+body {
+    font-family: 'Patrick Hand';
+    background: #6BAA75;
+    margin: 15px;
+    margin-top: 50px;
+}
+
+.logo-container {
+    text-align: center;
+    color: black;
+    margin: 0 auto;
+    padding: 30px;
+    background:rgba(0, 0, 0, 0.35) ;
+}
+
+.logo {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+}

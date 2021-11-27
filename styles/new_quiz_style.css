@@ -3,39 +3,8 @@
 body {
   font-family: 'Patrick Hand';
   background: #6BAA75;
-  margin: 0 0 55px 0;
+  margin: 15px;
   margin-top: 50px;
-}
-
-.nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 55px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
-  background-color: white;
-  display: flex;
-  overflow-x: auto;
-}
-
-.nav__link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  min-width: 50px;
-  overflow: hidden;
-  white-space: nowrap;
-  font-size: 20px;
-  color: #105a1d;
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color 0.1s ease-in-out;
-}
-
-.nav__icon {
-  font-size: 25px;
 }
 
 .logo-container {

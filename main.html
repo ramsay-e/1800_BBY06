@@ -26,170 +26,55 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- link to all the api keys for the project -->
-  <script src="scripts/my_script.js"></script>
+  <script src="./scripts/firebaseAPI.js"></script>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-
-    nav {
-      font-family: 'Patrick Hand';
-      font-size: 50px;
-      text-shadow: 1px 1px 1px rgb(218, 218, 218);
-    }
-
-    body {
-      font-family: 'Patrick Hand';
-      background-image: url(images/foodbackground.PNG);
-      background-size: cover;
-    }
-
-    .form-control:focus {
-      box-shadow: none;
-      border-color: #BA68C8;
-    }
-
-    .profile-button {
-      background: rgb(0, 168, 28);
-      box-shadow: none;
-      border: none
-    }
-
-    .profile-button:hover {
-      background: rgb(86, 241, 112);
-    }
-
-    .profile-button:focus {
-      background: #682773;
-      box-shadow: none
-    }
-
-    .profile-button:active {
-      background: rgb(86, 241, 112);
-      box-shadow: none
-    }
-
-    .back:hover {
-      color: #682773;
-      cursor: pointer
-    }
-
-    .labels {
-      font-size: 11px
-    }
-
-    .add-experience:hover {
-      background: rgb(0, 168, 28);
-      color: #fff;
-      cursor: pointer;
-      border: solid 1px #BA68C8
-    }
-
-    .container {
-      width: 90%;
-      margin: 0 auto;
-    }
-
-    header {
-      background: whitesmoke;
-    }
-
-    header::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    .logo {
-      float: left;
-      height: 15%;
-      width: 15%;
-      padding: 10px 0;
-
-    }
-
-    nav {
-      float: right;
-    }
-
-    nav ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 80px;
-      padding-top: 15px;
-    }
-
-    nav a {
-      color: black;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 2vw;
-    }
-
-    nav a:hover {
-      color: black;
-      background-color: whitesmoke;
-      background-image: radial-gradient(lightgreen, whitesmoke);
-    }
-
-    @media screen and (max-width: 700px) {
-      header {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-    }
-  </style>
+  <!-- Stylesheet link -->
+  <link rel="stylesheet" href="styles/main_style.css">
 </head>
 
 <body>
+  <div class="logo-container">
+    <img class="logo" src="images/bowl.png" alt="Logo">
+  </div>
+  <br>
 
-  <template id=CardTemplate>
+  <template id="CardTemplate">
     <div class="card py-2 mx-2" style="width: 18rem;">
-      <img class="card-image" src=" ..." class="card-img-top" alt="...">
+      <img class="card-image" src="..." alt="...">
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
           card's content.</p>
-        <a class="card-href" href="#" class="btn btn-primary">Get Details</a>
+        <a class="card-href" id="details" href="#">Go to Recipe</a>
       </div>
     </div>
   </template>
 
-
-  <header>
-    <div class="container">
-      <img src="images/bowl.png" alt="logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="main.html"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
-          <li><a href="menu.html"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
-          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <div class="container rounded bg-white mt-5 mb-5" style="padding-bottom: 2%;">
     <div class="row">
-      <h1 style="font-size: 5vw; margin-left: 5%; margin-top: 2%; text-decoration: underline;">Welcome back, <span
-          id="name-goes-here"></span>!
+      <h1 style="font-size: 5vw; margin-left: 5%; margin-top: 2%;">Welcome back, <span id="name-goes-here"></span>!
       </h1>
       <h2 style="color: green; font-size: 4vw; margin-left: 10%;">Craving some more?</h2>
-      <h2 style="font-size: 3vw; margin-left: 3%; margin-top: 2%; text-decoration: underline;">Recomended Menu Items
-      </h2>
+      <h1 style="font-size: 3vw; margin-left: 3%; margin-top: 2%; text-decoration: underline;">Recomended Menu Items
+      </h1>
       <div id="Vegan-go-here" class="row row-cols-auto"></div>
-      <h2 style="font-size: 3vw; margin-left: 3%; margin-top: 2%; text-decoration: underline;">Feeling Adventurous?
-      </h2>
-
     </div>
   </div>
+
+  <nav class="nav">
+    <a href="main.html" class="nav__link">
+      <i class="material-icons nav__icon">home</i>
+      <span class="nav__text">Home</span>
+    </a>
+    <a href="menu.html" class="nav__link">
+      <i class="material-icons nav__icon">restaurant_menu</i>
+      <span class="nav__text">Menu</span>
+    </a>
+    <a href="profile.html" class="nav__link">
+      <i class="material-icons nav__icon">account_circle</i>
+      <span class="nav__text">Profile</span>
+    </a>
+  </nav>
 
   <script>
     function insertName() {
@@ -232,8 +117,8 @@
             //update title and text and image
             newcard.querySelector('.card-title').innerHTML = title;
             newcard.querySelector('.card-text').innerHTML = details;
-            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg"; //hikes.jpg
-            
+            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
+
 
             newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
               .id; //firestore doc ID
@@ -250,22 +135,20 @@
     }
 
     firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
+      // Check if user is signed in:
+      if (user) {
 
-          currentUser = db.collection("users").doc(user.uid)
+        currentUser = db.collection("users").doc(user.uid)
 
-          currentUser.get()
-            .then(userDoc => {
+        currentUser.get()
+          .then(userDoc => {
 
-                let values = userDoc.data().values;
-                console.log(values)
-                values.forEach(item => displayCards(item));
-              })
-            }
-          }
-        )
-
+            let values = userDoc.data().values;
+            console.log(values)
+            values.forEach(item => displayCards(item));
+          })
+      }
+    })
   </script>
 
 </body>

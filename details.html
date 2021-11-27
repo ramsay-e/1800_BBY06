@@ -23,165 +23,21 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Link to the api keys for your firebase project -->
-  <script src="./scripts/my_script.js"></script>
+  <script src="./scripts/firebaseAPI.js"></script>
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-
-    nav {
-      font-family: 'Patrick Hand';
-      font-size: 50px;
-      text-shadow: 1px 1px 1px rgb(218, 218, 218);
-    }
-
-    body {
-      font-family: 'Patrick Hand';
-      background-image: url(images/foodbackground.PNG);
-      background-size: cover;
-    }
-
-    .form-control:focus {
-      box-shadow: none;
-      border-color: #BA68C8;
-    }
-
-    .profile-button {
-      background: rgb(0, 168, 28);
-      box-shadow: none;
-      border: none
-    }
-
-    .profile-button:hover {
-      background: rgb(86, 241, 112);
-    }
-
-    .profile-button:focus {
-      background: #682773;
-      box-shadow: none
-    }
-
-    .profile-button:active {
-      background: rgb(86, 241, 112);
-      box-shadow: none
-    }
-
-    .back:hover {
-      color: #682773;
-      cursor: pointer
-    }
-
-    .labels {
-      font-size: 11px
-    }
-
-    .add-experience:hover {
-      background: rgb(0, 168, 28);
-      color: #fff;
-      cursor: pointer;
-      border: solid 1px #BA68C8
-    }
-
-    .container {
-      width: 90%;
-      margin: 0 auto;
-    }
-
-    header {
-      background: whitesmoke;
-    }
-
-    header::after {
-      content: '';
-      display: table;
-      clear: both;
-    }
-
-    .logo {
-      float: left;
-      height: 15%;
-      width: 15%;
-      padding: 10px 0;
-
-    }
-
-    nav {
-      float: right;
-    }
-
-    nav ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-
-    nav li {
-      display: inline-block;
-      margin-left: 80px;
-      padding-top: 15px;
-    }
-
-    nav a {
-      color: black;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: 2vw;
-    }
-
-    nav a:hover {
-      color: black;
-      background-color: whitesmoke;
-      background-image: radial-gradient(lightgreen, whitesmoke);
-    }
-
-    .collapsible {
-      color: white;
-      cursor: pointer;
-      padding: 2%;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-    }
-
-    .content {
-      padding: 0 5%;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.2s ease-out;
-      background-color: #f1f1f1;
-
-    }
-
-
-    @media screen and (max-width: 700px) {
-      header {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
-    }
-  </style>
+  <!-- Stylesheet link -->
+  <link rel="stylesheet" href="styles/menu_style.css">
 </head>
 
 <body>
-  <header>
-    <div class="container">
-      <img src="images/bowl.png" alt="logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="main.html"><i class="material-icons" style="font-size: 100%;">home</i>Home</a></li>
-          <li><a href="menu.html"><i class="material-icons" style="font-size: 100%;">restaurant_menu</i>Menu</a></li>
-          <li><a href="profile.html"><i class="material-icons" style="font-size: 100%;">account_circle</i>Profile</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <div class="logo-container">
+    <img class="logo" src="images/bowl.png" alt="Logo">
+  </div>
+  <br>
 
   <div class="container rounded bg-white mt-5 mb-5">
 
-    <img class="details-img" src="..." class="card-img-top" alt="...">
+    <img class="details-img" src="..." alt="...">
     <h1 id="details-name"></h1>
     <h3 id="details-serves"></h3>
     <h3 id="details-prep"></h3>
@@ -191,6 +47,21 @@
     <iframe id="details-youtube" width="420" height="345" src="...">
     </iframe>
   </div>
+
+  <nav class="nav">
+    <a href="main.html" class="nav__link">
+      <i class="material-icons nav__icon">home</i>
+      <span class="nav__text">Home</span>
+    </a>
+    <a href="menu.html" class="nav__link">
+      <i class="material-icons nav__icon">restaurant_menu</i>
+      <span class="nav__text">Menu</span>
+    </a>
+    <a href="profile.html" class="nav__link">
+      <i class="material-icons nav__icon">account_circle</i>
+      <span class="nav__text">Profile</span>
+    </a>
+  </nav>
 
   <script>
     function showDetails() {

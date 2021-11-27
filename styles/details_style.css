@@ -1,1 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
+body {
+    font-family: 'Patrick Hand';
+    background: #6BAA75;
+    margin: 0 0 55px 0;
+    margin-top: 50px;
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    color: #105a1d;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__icon {
+    font-size: 25px;
+}
+
+.logo-container {
+    text-align: center;
+    color: black;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.form-check-label {
+    font-size: 35px;
+}
+
+#submit {
+    text-align: center;
+}
+
+#details {
+    background-color: #105a1d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+
+.button {
+    background-color: #105a1d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: rgb(66, 177, 66);
+    color: white;
+}

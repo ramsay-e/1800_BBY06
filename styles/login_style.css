@@ -5,6 +5,7 @@ body {
     background: #6BAA75;
     margin: 15px;
     margin-top: 50px;
+    background-image: radial-gradient(rgb(0, 175, 0),rgba(255, 255, 255, 0));
 }
 
 .logo-container {

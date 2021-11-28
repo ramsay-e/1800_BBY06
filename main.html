@@ -62,6 +62,14 @@
       <div id="Pescatarian-go-here" class="row row-cols-auto"></div>
       <div id="Vegetarian-go-here" class="row row-cols-auto"></div>
       <div id="Vegan-go-here" class="row row-cols-auto"></div>
+      <br>
+      <h1>Feeling adventurous? <span style="color: green;">Try these!</span></h1>
+      <div id="Vegan-go-here2" class="row row-cols-auto"></div>
+      <div id="Gluten-Free-go-here2" class="row row-cols-auto"></div>
+      <div id="Vegetarian-go-here2" class="row row-cols-auto"></div>
+      <div id="Pescatarian-go-here2" class="row row-cols-auto"></div>
+      <div id="Lactose-Free-go-here2" class="row row-cols-auto"></div>
+      <div id="Keto-go-here2" class="row row-cols-auto"></div>
     </div>
   </div>
 
@@ -138,6 +146,38 @@
         })
     }
 
+    function displayCards2(collection) {
+      let CardTemplate = document.getElementById("CardTemplate");
+
+      db.collection(collection).get()
+        .then(snap => {
+          var i = 1;
+
+          snap.forEach(doc => { //iterate thru each doc
+            var title = doc.data().Name;
+            var details = doc.data().Description;
+            let newcard = CardTemplate.content.cloneNode(true);
+
+            //update title and text and image
+            newcard.querySelector('.card-title').innerHTML = title;
+            newcard.querySelector('.card-text').innerHTML = details;
+            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
+
+
+            newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
+              .id; //firestore doc ID
+
+            //give unique ids to all elements for future use
+            newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+            newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+            newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+            //attach to gallery
+            document.getElementById(collection + "-go-here2").appendChild(newcard);
+          })
+        })
+    }
+
     firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
       if (user) {
@@ -147,9 +187,72 @@
         currentUser.get()
           .then(userDoc => {
 
+            let value1 = "";
+            let value2 = "";
             let values = userDoc.data().values;
+            let veg = 0;
+            let vege = 0;
+            let glu = 0;
+            let pes = 0;
+            let lac = 0;
+            let ket = 0;
             console.log(values)
             values.forEach(item => displayCards(item));
+            for (let num = 0; values.length > num; num++) {
+              if (values[num] == "Vegan") {
+                veg++;
+              } else if (values[num] == "Gluten-Free") {
+                glu++;
+              } else if (values[num] == "Pescatarian") {
+                pes++;
+              } else if (values[num] == "Lactose-Free") {
+                lac++;
+              } else if (values[num] == "Vegetarian") {
+                vege++;
+              } else if (values[num] == "Keto") {
+                ket++;
+              }
+            }
+            let sum = 6 - veg - ket - vege - glu - lac - pes;
+            let x = Math.floor((Math.random() * 6) + 1);
+            let f = 0;
+            console.log(x);
+            do {
+
+              if (x == 1) {
+                if (veg == 0) {
+                    displayCards2("Vegan");
+                    f++;
+                  }
+              } else if (x == 2) {
+                if (vege == 0) {
+                    displayCards2("Vegetarian");
+                    f++;
+                  }
+              } else if (x == 3) {
+                if (glu == 0) {
+                    displayCards2("Gluten-Free");
+                    f++;
+                  }
+              } else if (x == 4) {
+                if (pes == 0) {
+                    displayCards2("Pescatarian");
+                    f++;
+                  }
+              } else if (x == 5) {
+                if (ket == 0) {
+                    displayCards2("Keto");
+                    f++;
+                  }
+              } else if (x == 6) {
+                if (lac == 0) {
+                    displayCards2("Lactose-Free");
+                    f++;
+                  }   
+              }
+
+            }
+            while (f == 0);
           })
       }
     })

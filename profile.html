@@ -30,15 +30,27 @@
 </head>
 
 <body>
+
+  <!-- Header logo -->
+  <div class="logo-container">
+    <img class="logo" src="images/bowl.png" alt="Logo">
+  </div>
+  <br>
+
+  <!-- Container for profile -->
   <div class="container-fluid rounded bg-white mt-5 mb-5">
     <div class="row">
       <div class="col-md-3 border-right">
+
+        <!-- Profile placeholder image, name and email -->
         <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
             width="150px" src="images/icon.png">
           <span class="font-weight-bold" id="circle_name" style="padding: 4%;"></span>
           <span class="text-black-50" id="circle_email"></span>
         </div>
       </div>
+
+      <!-- Profile settings text input (Name, Email, Phone #) -->
       <div class="col-md-5 border-right">
         <div class="p-3 py-5">
           <div class="d-flex justify-content-between align-items-center mb-3">
@@ -62,6 +74,8 @@
                   <input type="text" id="phoneInput" class="form-control" placeholder="e.g. 555-555-5555">
                 </div>
               </fieldset>
+
+              <!-- Edit button allows field reselection and Save button allows for database update -->
               <div class="d-flex justify-content-end mt-5">
                 <button type="button" class="btn btn-secondary" style="font-size: 130%;"
                   onclick="editUserInfo()">Edit</button>
@@ -70,18 +84,22 @@
                   onclick="saveUserInfo()">Save</button>
               </div>
             </form>
-
           </div>
         </div>
       </div>
 
+      <!-- Bootrap green buttons for Quiz, FAQ, Contact and Log Out -->
       <div class="col-md-4">
         <div class="p-3 py-5">
+
+          <!-- Quiz redo button -->
           <a href="quiz.html">
             <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons"
                 style="font-size: 100%;">edit</i>Edit Diet Preferences</button><br>
           </a>
           <br>
+
+          <!-- FAQ dropdown -->
           <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons"
               style="font-size: 100%;">question_answer</i> FAQ<i class="material-icons"
               style="font-size: 100%; float: right;">expand_more</i></button>
@@ -97,6 +115,8 @@
               menu that displays the teams contact information. Feel free to send us an email!</h4>
           </div>
           <br>
+
+          <!-- Contact Us dropdown -->
           <button class="collapsible btn-success" style="font-size: 130%;"><i class="material-icons"
               style="font-size: 100%;">contacts</i> Contact Us<i class="material-icons"
               style="font-size: 100%; float: right;">expand_more</i></button>
@@ -114,6 +134,8 @@
             <h4 style="margin-left: 5%;">sunreetsidhu20@gmail.com</h4>
           </div>
           <br>
+
+          <!-- Log out button -->
           <a href="login.html">
             <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons"
                 style="font-size: 100%;">logout</i> Log Out</button>
@@ -125,6 +147,7 @@
     </div>
   </div>
 
+  <!-- Bottom navbar -->
   <nav class="nav">
     <a href="main.html" class="nav__link">
       <i class="material-icons nav__icon">home</i>
@@ -141,6 +164,7 @@
   </nav>
 
   <script>
+
     var currentUser;
 
     function insertName() {
@@ -164,11 +188,13 @@
         }
       });
     }
-    insertName();
+    insertName(); // Displays name and email where provided
 
+    // Dropdown menu variables
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
+    // Dropdown menu, activates on click and controls height/width
     for (i = 0; i < coll.length; i++) {
       coll[i].addEventListener("click", function () {
         this.classList.toggle("active");
@@ -219,7 +245,6 @@
         }
       });
     }
-
     //call the function to run it
     populateInfo();
 
@@ -228,16 +253,20 @@
       document.getElementById('personalInfoFields').disabled = false;
     }
 
+    // Saves user info after edit
     function saveUserInfo() {
       userName = document.getElementById('nameInput').value;
       userEmail = document.getElementById('emailInput').value;
       userPhone = document.getElementById('phoneInput').value;
 
+      // Updates corresponding fields in document
       currentUser.update({
           name: userName,
           email: userEmail,
           phone: userPhone,
         })
+
+        // Completion message
         .then(() => {
           console.log("Document successfully updated!");
         })

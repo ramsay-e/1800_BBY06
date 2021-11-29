@@ -33,11 +33,14 @@
 </head>
 
 <body>
+
+  <!-- Header logo -->
   <div class="logo-container">
     <img class="logo" src="images/bowl.png" alt="Logo">
   </div>
   <br>
 
+  <!-- Quiz container including titles and form -->
   <div class="container-fluid rounded bg-white mt-5 mb-5">
     <div class="row justify-content-center">
       <div>
@@ -91,6 +94,8 @@
               </label>
             </div>
           </fieldset>
+
+          <!-- Edit button allows field reselection and Save button allows for database update -->
           <div class="d-flex justify-content-center mt-5">
             <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
             <span style="width: 10px"></span>
@@ -99,6 +104,8 @@
           </div>
         </form>
         <br>
+
+        <!-- Submit button redirects you to main page -->
         <div id="submit">
           <a href="main.html" class="button">Submit</a>
         </div>
@@ -107,6 +114,7 @@
   </div>
   <br>
 
+  <!-- Bottom navbar -->
   <nav class="nav">
     <a href="main.html" class="nav__link">
       <i class="material-icons nav__icon">home</i>
@@ -170,7 +178,6 @@
         }
       });
     }
-
     //call the function to run it
     populateInfo();
 
@@ -184,22 +191,26 @@
       document.getElementById('quizFields').disabled = true;
     }
 
+    // Allows user to save form after editing
     function saveUserInfo(name) {
       const checkboxes = document.querySelectorAll(`input[name="${name}"]:checked`);
       let values = [];
+      // Checks to see what checkboxes were selected
       checkboxes.forEach((checkbox) => {
         values.push(checkbox.value);
       });
+      // Updates selected checkboxes
       currentUser.update({
         values
       })
     }
 
+    // Checkbox button JS functionality
     const btn = document.querySelector('#btn');
     btn.addEventListener('click', (event) => {
       saveUserInfo('flexRadioDefault');
     });
-
+    // Assigns button selection to restriction
     currentUser.update({
         vegetarian: quiz1,
         vegan: quiz2,
@@ -208,6 +219,7 @@
         lactose_free: quiz5,
         keto: quiz6,
       })
+      // Displays completion message
       .then(() => {
         console.log("Document successfully updated!");
       })

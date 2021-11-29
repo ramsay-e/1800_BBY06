@@ -32,11 +32,13 @@
 
 <body>
 
+    <!-- Header logo -->
   <div class="logo-container">
     <img class="logo" src="images/bowl.png" alt="Logo">
   </div>
   <br>
 
+  <!-- Card Template -->
   <template id="CardTemplate">
     <div class="card py-2 mx-2" style="width: 18rem;">
       <img class="card-image" src="..." alt="...">
@@ -49,13 +51,15 @@
     </div>
   </template>
 
+    <!-- Conatiner for title and menu items -->
   <div class="container-fluid rounded bg-white" style="margin-top: 2%;">
     <h1 style="color: rgb(0, 128, 0); font-size: 7vw; text-align: center; margin-top: 2%">Your <span id="gallery"
         style="text-transform: capitalize;"></span> Menu
     </h1>
     <br>
 
-    <!-- Here is container for cards  -->
+    <!-- Here is div for cards  -->
+    <!-- All divs are listed below but only those that get populated show -->
     <div>
       <div id="Keto-go-here" class="row row-cols-auto"></div>
       <div id="Gluten-Free-go-here" class="row row-cols-auto"></div>
@@ -67,6 +71,8 @@
     </div>
   </div>
 
+
+  <!-- Bottom navbar -->
   <nav class="nav">
     <a href="main.html" class="nav__link">
       <i class="material-icons nav__icon">home</i>
@@ -83,21 +89,8 @@
   </nav>
 
   <script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    }
-
+    // Displaycards for menu items. Iterates through collection of restriction type (ex. Vegan)
     function displayCards(collection) {
       let CardTemplate = document.getElementById("CardTemplate");
 
@@ -114,6 +107,7 @@
             newcard.querySelector('.card-text').innerHTML = details;
             newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
 
+            // Gets and formats gallery name (ex. "Your Vegan Menu")
             let gallery = collection;
             document.getElementById("gallery").innerHTML = gallery.replace("_", " ").replace("-", " ");
 
@@ -131,6 +125,7 @@
         })
     }
 
+    // Gets restriction values in user document to display all menu items.
     firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
       if (user) {
@@ -140,12 +135,14 @@
         currentUser.get()
           .then(userDoc => {
 
+            // Displays menu cards based on quiz selections in user document
             let values = userDoc.data().values;
             console.log(values)
             values.forEach(item => displayCards(item));
           })
       }
     })
+    
   </script>
 
 </body>

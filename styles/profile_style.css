@@ -4,6 +4,7 @@ body {
     font-family: 'Patrick Hand';
     background-color: #6BAA75;
     background-image: radial-gradient(rgb(0, 175, 0),rgba(255, 255, 255, 0));
+    margin-top: 50px;
 }
 
 .collapsible {
@@ -23,6 +24,20 @@ body {
 
 .container-fluid {
     width: 90vw;
+}
+
+.logo-container {
+    text-align: center;
+    color: black;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.logo {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .nav {

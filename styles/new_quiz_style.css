@@ -26,6 +26,15 @@ body {
   font-size: 35px;
 }
 
+.container-fluid {
+  width: 90vw;
+}
+
+.bg-white {
+  border-style: solid;
+  border-width: 10px;
+}
+
 #submit {
   text-align: center;
 }

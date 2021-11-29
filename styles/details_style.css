@@ -42,8 +42,8 @@ body {
 .logo-container {
     text-align: center;
     color: black;
-    margin: 0 auto;
-    padding: 30px;
+    margin: 1% auto;
+    padding: 1%;
     background: rgba(0, 0, 0, 0.35);
 }
 
@@ -59,8 +59,12 @@ body {
 
 .bg-white {
     border-style:groove;
-    border-width: 50px;
+    border-width: 2.5vw;
     border-color:#105a1d;
+}
+
+.container-fluid {
+  width: 90vw;
 }
 
 #submit {
@@ -82,53 +86,61 @@ body {
 
 }
 #details-name {
-    font-family: 'Cookie', cursive;
-    font-family: 'Great Vibes', cursive;
-    font-size: 100px;
+    /* font-family: 'Cookie', cursive;
+    font-family: 'Great Vibes', cursive; */
+    font-size: 600%;
     color: #750D37;
     text-align: center;
+  }
+
+  #details-img {
+    display: block;
+    max-width: 50%;
+    margin: 2% auto;
+    border: 5px solid black;
   }
 
   #details-description {
-    font-family: 'Niconne', cursive;
     font-size: 45px;
     color: #750D37;
+    text-align: center;
+    font-size: 400%;
   }
 
   #details-serves {
-    font-family: 'Times New Roman', Times, serif;
-    color: #093824;
+    color: black;
   }
 
   #details-prep_time {
-    font-family: 'Times New Roman', Times, serif;
-    color: #093824;
+    color: black;
   }
 
   #details-recipe {
-    font-family: 'Times New Roman', Times, serif;
-    color: #093824;
+    color: black;
+    text-align: left;
+    font-size: 80%;
   }
 
   #details-ingredients {
-    font-family: 'Times New Roman', Times, serif;
-    color: #093824;
+    color: black;
+    text-align: left;
+    font-size: 80%;
   }
 
   #details-nutrients {
-    font-family: 'Times New Roman', Times, serif;
-    color: #093824;
+    color: black;
+    text-align: left;
+    font-size: 80%;
   }
 
   h2 {
-    font-family: 'Great Vibes', cursive;
-    text-align: center;
     color: #750D37;
+    font-size: 400%;
   }
   h3 {
-    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     color:#750D37;
+    font-size: 250%;
   }
 
 
@@ -149,4 +161,24 @@ body {
 a:hover {
     background-color: rgb(66, 177, 66);
     color: white;
+}
+
+#grid {
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 70% 30%;
+}
+
+#grid .ing {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#grid .nut {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#grid .rec {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }

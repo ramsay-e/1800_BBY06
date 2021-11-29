@@ -13,6 +13,10 @@ body {
     border-width: 10px;
 }
 
+.container-fluid {
+    width: 90vw;
+}
+
 .nav {
     position: fixed;
     bottom: 0;

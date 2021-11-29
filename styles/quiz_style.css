@@ -53,6 +53,15 @@ body {
   margin: 0 auto;
 }
 
+.container-fluid {
+  width: 90vw;
+}
+
+.bg-white {
+  border-style: solid;
+  border-width: 10px;
+}
+
 .form-check-label {
   font-size: 35px;
 }

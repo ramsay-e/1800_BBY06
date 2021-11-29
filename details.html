@@ -44,9 +44,9 @@
   </div>
   <br>
 
-  <div class="container rounded bg-white mt-5 mb-5">
+  <div class="container-fluid rounded bg-white mt-5 mb-5">
 
-    <img class="details-img" src="..." alt="recipe-name">
+    <img id="details-img" src="..." alt="...">
     <br><br>
     <h1 id="details-name"></h1>
     <br><br>
@@ -55,14 +55,23 @@
       <b>Prep-time</b>: <span id="details-prep_time"></span>
     </h3>
     <br>
+
     <h2 id="details-description"></h2>
     <br>
-    <h2><b>Recipe</b> <br> <span id="details-recipe"></span></h2>
-    <br>
-    <h2><b>Ingredients</b><br> <span id="details-ingredients"></span></h2>
-    <br>
-    <h2><b>Nutrients</b><br> <span id="details-nutrients"></span></h2>
-    <br>
+    <div class="col">
+      <div class="row">
+        <h2><b>Ingredients</b><br> <span id="details-ingredients"></span></h2>
+      </div>
+      <div class="row">
+        <h2><b>Nutrients</b><br> <span id="details-nutrients"></span></h2>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <h2><b>Recipe</b> <br> <span id="details-recipe"></span></h2>
+      </div>
+    </div>
+
   </div>
   <br>
 
@@ -92,19 +101,44 @@
         let name = userDoc.data().Name;
         let recipe = userDoc.data().Recipe;
         let description = userDoc.data().Description;
-        let ingredients = userDoc.data().Ingredients;
+        // let ingredients = userDoc.data().Ingredients;
         let prep_time = userDoc.data().Prep_time;
         let serves = userDoc.data().Serves;
+        // let nutrients = userDoc.data().Nutrients;
+
+        let recipeList = "<ol>";
+
+        let recipes = userDoc.data().Recipe;
+            console.log(recipes)
+            recipes.forEach(item => recipeList = recipeList + "<li>" + item + "</li>");
+
+          recipeList = recipeList + "</ol>"
+
+        let ingredientList = "<ul>";
+
+        let ingredients = userDoc.data().Ingredients;
+        console.log(ingredients)
+        ingredients.forEach(item => ingredientList = ingredientList + "<li>" + item + "</li>");
+
+        ingredientList = ingredientList + "</ul>"
+
+        let nutrientList = "<ul>";
+
         let nutrients = userDoc.data().Nutrients;
+        console.log(nutrients)
+        nutrients.forEach(item => nutrientList = nutrientList + "<li>" + item + "</li>");
+
+        nutrientList = nutrientList + "</ul>"
+
 
         console.log(name);
         document.getElementById("details-name").innerHTML = name;
-        document.getElementById("details-recipe").innerHTML = recipe;
+        document.getElementById("details-recipe").innerHTML = recipeList;
         document.getElementById("details-description").innerHTML = description;
-        document.getElementById("details-ingredients").innerHTML = ingredients;
+        document.getElementById("details-ingredients").innerHTML = ingredientList;
         document.getElementById("details-serves").innerHTML = serves;
         document.getElementById("details-prep_time").innerHTML = prep_time;
-        document.getElementById("details-nutrients").innerHTML = nutrients;
+        document.getElementById("details-nutrients").innerHTML = nutrientList;
         document.getElementById('details-img').src = "./images/" + name + ".jpg";
         newcard.querySelector('.details-img').src = "./images/" + name + ".jpg";
 

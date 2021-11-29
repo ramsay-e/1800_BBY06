@@ -31,13 +31,14 @@
   <!-- Stylesheet link -->
   <link rel="stylesheet" href="styles/main_style.css">
 </head>
-
 <body>
+  <!-- Header logo -->
   <div class="logo-container">
     <img class="logo" src="images/bowl.png" alt="Logo">
   </div>
   <br>
 
+  <!-- Card Template -->
   <template id="CardTemplate">
     <div class="card py-2 mx-2" style="width: 18rem;">
       <img class="card-image" src="..." alt="...">
@@ -50,6 +51,7 @@
     </div>
   </template>
 
+    <!-- Container for the displayed recipes -->
   <div class="container-fluid rounded bg-white mt-5 mb-5" style="padding-bottom: 2%;">
     <div class="row">
       <h1 style="font-size: 5vw; text-align: center; margin-top: 2%">Welcome back, <span id="name-goes-here"></span>!
@@ -73,6 +75,7 @@
     </div>
   </div>
 
+  <!-- Bottom Nav Bar -->
   <nav class="nav">
     <a href="main.html" class="nav__link">
       <i class="material-icons nav__icon">home</i>
@@ -102,11 +105,8 @@
             .then(userDoc => {
               var user_Name = userDoc.data().name;
               console.log(user_Name);
-              //method #1:  insert with html only
               document.getElementById("name-goes-here").innerText =
-                user_Name; //using javascript
-              //method #2:  insert using jquery
-              //$("#name-goes-here").text(user_Name); //using jquery
+                user_Name;
             })
         } else {
           // No user is signed in.
@@ -259,7 +259,6 @@
       }
     })
   </script>
-
 </body>
 
 </html>

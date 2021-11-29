@@ -39,13 +39,14 @@
 </head>
 
 <body>
+  <!-- Header logo -->
   <div class="logo-container">
     <img class="logo" src="images/bowl.png" alt="Logo">
   </div>
   <br>
 
+  <!-- Container for the recipe -->
   <div class="container-fluid rounded bg-white mt-5 mb-5">
-
     <img id="details-img" src="..." alt="...">
     <br><br>
     <h1 id="details-name"></h1>
@@ -56,6 +57,7 @@
     </h3>
     <br>
 
+    <!-- Recipe Details -->
     <h2 id="details-description"></h2>
     <br>
     <div class="col">
@@ -71,10 +73,10 @@
         <h2><b>Recipe</b> <br> <span id="details-recipe"></span></h2>
       </div>
     </div>
-
   </div>
   <br>
 
+  <!-- Bottom navbar -->
   <nav class="nav">
     <a href="main.html" class="nav__link">
       <i class="material-icons nav__icon">home</i>
@@ -96,42 +98,35 @@
       let params = new URL(window.location.href);
       let urlstring = params.searchParams.get("collection"); //parse "collection"
       let patharray = urlstring.split('?');
-      // console.log(patharray[1].replace('id=',''));}
       db.collection(patharray[0]).doc(patharray[1].replace('id=', '')).get().then(userDoc => {
         let name = userDoc.data().Name;
         let recipe = userDoc.data().Recipe;
         let description = userDoc.data().Description;
-        // let ingredients = userDoc.data().Ingredients;
         let prep_time = userDoc.data().Prep_time;
         let serves = userDoc.data().Serves;
-        // let nutrients = userDoc.data().Nutrients;
 
+        //Gets the data fields of the recipe array
         let recipeList = "<ol>";
-
         let recipes = userDoc.data().Recipe;
-            console.log(recipes)
-            recipes.forEach(item => recipeList = recipeList + "<li>" + item + "</li>");
+        console.log(recipes)
+        recipes.forEach(item => recipeList = recipeList + "<li>" + item + "</li>");
+        recipeList = recipeList + "</ol>"
 
-          recipeList = recipeList + "</ol>"
-
+        //Gets the data fields of the ingredients array
         let ingredientList = "<ul>";
-
         let ingredients = userDoc.data().Ingredients;
         console.log(ingredients)
         ingredients.forEach(item => ingredientList = ingredientList + "<li>" + item + "</li>");
-
         ingredientList = ingredientList + "</ul>"
 
+        //Gets the data fields of the nutrients array
         let nutrientList = "<ul>";
-
         let nutrients = userDoc.data().Nutrients;
         console.log(nutrients)
         nutrients.forEach(item => nutrientList = nutrientList + "<li>" + item + "</li>");
-
         nutrientList = nutrientList + "</ul>"
 
-
-        console.log(name);
+        //Get each element of the document
         document.getElementById("details-name").innerHTML = name;
         document.getElementById("details-recipe").innerHTML = recipeList;
         document.getElementById("details-description").innerHTML = description;
@@ -143,9 +138,6 @@
         newcard.querySelector('.details-img').src = "./images/" + name + ".jpg";
 
       });
-      // let message = "name is: " + name;        //build message to display
-      //     // message += "Document id is:  " + id;
-      // document.getElementById("details-go-here").innerHTML = message;
     }
     showDetails();
   </script>

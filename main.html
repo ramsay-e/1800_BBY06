@@ -54,10 +54,10 @@
     <!-- Container for the displayed recipes -->
   <div class="container-fluid rounded bg-white mt-5 mb-5" style="padding-bottom: 2%;">
     <div class="row">
-      <h1 style="font-size: 5vw; text-align: center; margin-top: 2%">Welcome back, <span id="name-goes-here"></span>!
+      <h1 style="font-size: 6vw; text-align: center; margin-top: 2%; text-decoration: underline;">Welcome back, <span id="name-goes-here"></span>!
       </h1>
-      <h2 style="font-size: 4vw; color:green; text-align: center; margin-top: 2%">Craving some more?</h2>
-      <h1>Recomended Menu Items</h1>
+      <h2 style="font-size: 5vw; color:green; text-align: center; margin-top: 2%">Craving some more?</h2>
+      <h1 style="font-size: 3vw; text-decoration: underline;">Recomended Menu Items</h1>
       <div id="Keto-go-here" class="row row-cols-auto"></div>
       <div id="Gluten-Free-go-here" class="row row-cols-auto"></div>
       <div id="Lactose-Free-go-here" class="row row-cols-auto"></div>
@@ -118,7 +118,7 @@
     function displayCards(collection) {
       let CardTemplate = document.getElementById("CardTemplate");
 
-      db.collection(collection).orderBy("Name").get()
+      db.collection(collection).orderBy("Name").limit(4).get()
         .then(snap => {
           var i = 1;
           let num = 0;
@@ -151,7 +151,7 @@
     function displayCards2(collection) {
       let CardTemplate = document.getElementById("CardTemplate");
 
-      db.collection(collection).orderBy("Name").get()
+      db.collection(collection).orderBy("Name").limit(4).get()
         .then(snap => {
           var i = 1;
 

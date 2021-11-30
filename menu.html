@@ -94,7 +94,7 @@
     function displayCards(collection) {
       let CardTemplate = document.getElementById("CardTemplate");
 
-      db.collection(collection).get()
+      db.collection(collection).orderBy("Name").get()
         .then(snap => {
           var i = 1;
           snap.forEach(doc => { //iterate thru each doc

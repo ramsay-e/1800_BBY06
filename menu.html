@@ -139,6 +139,14 @@
             let values = userDoc.data().values;
             console.log(values)
             values.forEach(item => displayCards(item));
+            if (values.length == 0) {
+              displayCards("Gluten-Free");
+              displayCards("Vegan");
+              displayCards("Vegetarian");
+              displayCards("Lactose-Free");
+              displayCards("Keto");
+              displayCards("Pescatarian");
+            }
           })
       }
     })

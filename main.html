@@ -200,6 +200,9 @@
             let ket = 0;
             console.log(values)
             values.forEach(item => displayCards(item));
+            if (values.length == 0) {
+              displayCards("Gluten-Free");
+            }
             for (let num = 0; values.length > num; num++) {
               if (values[num] == "Vegan") {
                 veg++;

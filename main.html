@@ -57,6 +57,7 @@
       <h1 style="font-size: 6vw; text-align: center; margin-top: 2%; text-decoration: underline;">Welcome back, <span id="name-goes-here"></span>!
       </h1>
       <h2 style="font-size: 5vw; color:green; text-align: center; margin-top: 2%">Craving some more?</h2>
+      <!-- Recommended recipes -->
       <h1 style="font-size: 3vw; text-decoration: underline;">Recomended Menu Items</h1>
       <div id="Keto-go-here" class="row row-cols-auto"></div>
       <div id="Gluten-Free-go-here" class="row row-cols-auto"></div>
@@ -65,6 +66,7 @@
       <div id="Vegetarian-go-here" class="row row-cols-auto"></div>
       <div id="Vegan-go-here" class="row row-cols-auto"></div>
       <br>
+      <!-- Randomizer recipes -->
       <h1 style="font-size: 3vw; text-decoration: underline; margin-top: 2%;">Feeling adventurous? <span style="color: green;">Try these!</span></h1>
       <div id="Vegan-go-here2" class="row row-cols-auto"></div>
       <div id="Gluten-Free-go-here2" class="row row-cols-auto"></div>
@@ -92,94 +94,12 @@
   </nav>
 
   <script>
-    function insertName() {
-      firebase.auth().onAuthStateChanged(user => {
-        // Check if user is signed in:
-        if (user) {
-          // Do something for the current logged-in user here:
-          console.log(user.uid);
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("users").doc(user.uid);
-          //get the document for current user.
-          currentUser.get()
-            .then(userDoc => {
-              var user_Name = userDoc.data().name;
-              console.log(user_Name);
-              document.getElementById("name-goes-here").innerText =
-                user_Name;
-            })
-        } else {
-          // No user is signed in.
-        }
-      });
-    }
+    
     insertName();
 
-    function displayCards(collection) {
-      let CardTemplate = document.getElementById("CardTemplate");
+    
 
-      db.collection(collection).orderBy("Name").limit(4).get()
-        .then(snap => {
-          var i = 1;
-          let num = 0;
-          
-          snap.forEach(doc => { //iterate thru each doc
-            var title = doc.data().Name;
-            var details = doc.data().Description;
-            let newcard = CardTemplate.content.cloneNode(true);
-
-            //update title and text and image
-            newcard.querySelector('.card-title').innerHTML = title;
-            newcard.querySelector('.card-text').innerHTML = details;
-            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
-
-
-            newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
-              .id; //firestore doc ID
-
-            //give unique ids to all elements for future use
-            newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-            newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-            newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-            //attach to gallery
-            document.getElementById(collection + "-go-here").appendChild(newcard);
-          })
-        })
-    }
-
-    function displayCards2(collection) {
-      let CardTemplate = document.getElementById("CardTemplate");
-
-      db.collection(collection).orderBy("Name").limit(4).get()
-        .then(snap => {
-          var i = 1;
-
-          snap.forEach(doc => { //iterate thru each doc
-            var title = doc.data().Name;
-            var details = doc.data().Description;
-            let newcard = CardTemplate.content.cloneNode(true);
-
-            //update title and text and image
-            newcard.querySelector('.card-title').innerHTML = title;
-            newcard.querySelector('.card-text').innerHTML = details;
-            newcard.querySelector('.card-image').src = "./images/" + title + ".jpg";
-
-
-            newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc
-              .id; //firestore doc ID
-
-            //give unique ids to all elements for future use
-            newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-            newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-            newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-            //attach to gallery
-            document.getElementById(collection + "-go-here2").appendChild(newcard);
-          })
-        })
-    }
-
+    // Meal preference fetcher and Randomizer for main (Feeling adventurous)
     firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
       if (user) {
@@ -189,8 +109,6 @@
         currentUser.get()
           .then(userDoc => {
 
-            let value1 = "";
-            let value2 = "";
             let values = userDoc.data().values;
             let veg = 0;
             let vege = 0;
@@ -199,7 +117,9 @@
             let lac = 0;
             let ket = 0;
             console.log(values)
+            //Displays card for each restriction selected in quiz
             values.forEach(item => displayCards(item));
+            //Start of randomizer, eliminates all selected restrictions
             if (values.length == 0) {
               displayCards("Gluten-Free");
             }
@@ -218,7 +138,8 @@
                 ket++;
               }
             }
-            let sum = 6 - veg - ket - vege - glu - lac - pes;
+            // Number randomizer that chooses random collection that the user hasn't selected
+            // Displays the randomly picked collection in display cards 2
             let x = Math.floor((Math.random() * 6) + 1);
             let f = 0;
             console.log(x);

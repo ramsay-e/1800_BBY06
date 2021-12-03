@@ -24,6 +24,8 @@
 
   <!-- link to all the api keys for the project -->
   <script src="./scripts/firebaseAPI.js"></script>
+
+  <!-- Link to javascript functions -->
   <script src="./scripts/profile.js"></script>
 
   <!-- Stylesheet link -->
@@ -106,7 +108,8 @@
               style="font-size: 100%; float: right;">expand_more</i></button>
           <div class="content">
             <h4><b style="color: darkgreen;">Q:</b> Are my restriction and preference choices permanent?</h4>
-            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> No, you can change your restrictions with the "Edit diet preferences" button above.</h4>
+            <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> No, you can change your restrictions with
+              the "Edit diet preferences" button above.</h4>
             <h4><b style="color: darkgreen;">Q:</b> How do I log out?</h4>
             <h4 style="margin-left: 8%;"><b style="color: darkgreen;">A:</b> Below, there is a "Log Out" button that
               allows you to log out and access another account.</h4>
@@ -137,7 +140,7 @@
           <br>
 
           <!-- Log out button -->
-          <a href="login.html">
+          <a href="index.html">
             <button type="button" class="btn btn-success" style="font-size: 130%;"><i class="material-icons"
                 style="font-size: 100%;">logout</i> Log Out</button>
           </a>
@@ -164,34 +167,29 @@
     </a>
   </nav>
 
-  <script>
-
-    
-    insertName(); // Displays name and email where provided
-
-    // Dropdown menu variables
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    // Dropdown menu, activates on click and controls height/width
-    for (i = 0; i < coll.length; i++) {
-      coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-          content.style.maxHeight = null;
-        } else {
-          content.style.maxHeight = content.scrollHeight + "px";
-        }
-      });
-    }
-
-    
-    //call the function to run it
-    populateInfo();
-
-    
-  </script>
 </body>
+
+<script>
+  insertName(); // Displays name and email where provided
+
+  // Dropdown menu variables
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  // Dropdown menu, activates on click and controls height/width
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
+  //call the function to run it
+  populateInfo();
+</script>
 
 </html>

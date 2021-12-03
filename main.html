@@ -27,12 +27,14 @@
 
   <!-- link to all the api keys for the project -->
   <script src="./scripts/firebaseAPI.js"></script>
-  <script src="./scripts/main.js"></script>
 
+  <!-- Link to javascript functions -->
+  <script src="./scripts/main.js"></script>
 
   <!-- Stylesheet link -->
   <link rel="stylesheet" href="styles/main_style.css">
 </head>
+
 <body>
   <!-- Header logo -->
   <div class="logo-container">
@@ -53,10 +55,11 @@
     </div>
   </template>
 
-    <!-- Container for the displayed recipes -->
+  <!-- Container for the displayed recipes -->
   <div class="container-fluid rounded bg-white mt-5 mb-5" style="padding-bottom: 2%;">
     <div class="row">
-      <h1 style="font-size: 6vw; text-align: center; margin-top: 2%; text-decoration: underline;">Welcome back, <span id="name-goes-here"></span>!
+      <h1 style="font-size: 6vw; text-align: center; margin-top: 2%; text-decoration: underline;">Welcome back, <span
+          id="name-goes-here"></span>!
       </h1>
       <h2 style="font-size: 5vw; color:green; text-align: center; margin-top: 2%">Craving some more?</h2>
       <!-- Recommended recipes -->
@@ -69,7 +72,8 @@
       <div id="Vegan-go-here" class="row row-cols-auto"></div>
       <br>
       <!-- Randomizer recipes -->
-      <h1 style="font-size: 3vw; text-decoration: underline; margin-top: 2%;">Feeling adventurous? <span style="color: green;">Try these!</span></h1>
+      <h1 style="font-size: 3vw; text-decoration: underline; margin-top: 2%;">Feeling adventurous? <span
+          style="color: green;">Try these!</span></h1>
       <div id="Vegan-go-here2" class="row row-cols-auto"></div>
       <div id="Gluten-Free-go-here2" class="row row-cols-auto"></div>
       <div id="Vegetarian-go-here2" class="row row-cols-auto"></div>
@@ -96,11 +100,7 @@
   </nav>
 
   <script>
-    
     insertName();
-
-    
-
     // Meal preference fetcher and Randomizer for main (Feeling adventurous)
     firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
@@ -146,39 +146,37 @@
             let f = 0;
             console.log(x);
             do {
-
               if (x == 1) {
                 if (veg == 0) {
-                    displayCards2("Vegan");
-                    f++;
-                  }
+                  displayCards2("Vegan");
+                  f++;
+                }
               } else if (x == 2) {
                 if (vege == 0) {
-                    displayCards2("Vegetarian");
-                    f++;
-                  }
+                  displayCards2("Vegetarian");
+                  f++;
+                }
               } else if (x == 3) {
                 if (glu == 0) {
-                    displayCards2("Gluten-Free");
-                    f++;
-                  }
+                  displayCards2("Gluten-Free");
+                  f++;
+                }
               } else if (x == 4) {
                 if (pes == 0) {
-                    displayCards2("Pescatarian");
-                    f++;
-                  }
+                  displayCards2("Pescatarian");
+                  f++;
+                }
               } else if (x == 5) {
                 if (ket == 0) {
-                    displayCards2("Keto");
-                    f++;
-                  }
+                  displayCards2("Keto");
+                  f++;
+                }
               } else if (x == 6) {
                 if (lac == 0) {
-                    displayCards2("Lactose-Free");
-                    f++;
-                  }   
+                  displayCards2("Lactose-Free");
+                  f++;
+                }
               }
-
             }
             while (f == 0);
           })

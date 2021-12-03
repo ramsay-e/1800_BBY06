@@ -1,66 +1,66 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 body {
-    font-family: 'Patrick Hand';
-    background: #6BAA75;
-    margin: 0 0 55px 0;
-    margin-top: 50px;
-    background-image: radial-gradient(rgb(0, 175, 0),rgba(255, 255, 255, 0));
+  font-family: 'Patrick Hand';
+  background: #6BAA75;
+  margin: 0 0 55px 0;
+  margin-top: 50px;
+  background-image: radial-gradient(rgb(0, 175, 0), rgba(255, 255, 255, 0));
 }
 
 .nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 55px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    display: flex;
-    overflow-x: auto;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  display: flex;
+  overflow-x: auto;
 }
 
 .nav__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    min-width: 50px;
-    overflow: hidden;
-    white-space: nowrap;
-    font-size: 20px;
-    color: #105a1d;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: background-color 0.1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 20px;
+  color: #105a1d;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.1s ease-in-out;
 }
 
 .nav__icon {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .logo-container {
-    text-align: center;
-    color: black;
-    margin: 1% auto;
-    padding: 1%;
-    background: rgba(255, 255, 255, 0.452);
+  text-align: center;
+  color: black;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.452);
 }
 
 .logo {
-    display: block;
-    max-width: 300px;
-    margin: 0 auto;
+  display: block;
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 .form-check-label {
-    font-size: 35px;
+  font-size: 35px;
 }
 
 .bg-white {
-    border-style:groove;
-    border-width: 2.5vw;
-    border-color:#105a1d;
+  border-style: groove;
+  border-width: 2.5vw;
+  border-color: #105a1d;
 }
 
 .container-fluid {
@@ -68,99 +68,101 @@ body {
 }
 
 #submit {
-    text-align: center;
+  text-align: center;
 }
 
 #details {
-    background-color: #105a1d;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    border-radius: 6px;
-    margin: 4px 2px;
-    cursor: pointer;
+  background-color: #105a1d;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 6px;
+  margin: 4px 2px;
+  cursor: pointer;
 
 }
+
 #details-name {
-    /* font-family: 'Cookie', cursive;
+  /* font-family: 'Cookie', cursive;
     font-family: 'Great Vibes', cursive; */
-    font-size: 600%;
-    color: #750D37;
-    text-align: center;
-  }
+  font-size: 600%;
+  color: #750D37;
+  text-align: center;
+}
 
-  #details-img {
-    display: block;
-    max-width: 50%;
-    margin: 2% auto;
-    border: 5px solid black;
-  }
+#details-img {
+  display: block;
+  max-width: 50%;
+  margin: 2% auto;
+  border: 5px solid black;
+}
 
-  #details-description {
-    font-size: 45px;
-    color: #750D37;
-    text-align: center;
-    font-size: 400%;
-  }
+#details-description {
+  font-size: 45px;
+  color: #750D37;
+  text-align: center;
+  font-size: 400%;
+}
 
-  #details-serves {
-    color: black;
-  }
+#details-serves {
+  color: black;
+}
 
-  #details-prep_time {
-    color: black;
-  }
+#details-prep_time {
+  color: black;
+}
 
-  #details-recipe {
-    color: black;
-    text-align: left;
-    font-size: 80%;
-  }
+#details-recipe {
+  color: black;
+  text-align: left;
+  font-size: 80%;
+}
 
-  #details-ingredients {
-    color: black;
-    text-align: left;
-    font-size: 80%;
-  }
+#details-ingredients {
+  color: black;
+  text-align: left;
+  font-size: 80%;
+}
 
-  #details-nutrients {
-    color: black;
-    text-align: left;
-    font-size: 80%;
-  }
+#details-nutrients {
+  color: black;
+  text-align: left;
+  font-size: 80%;
+}
 
-  h2 {
-    color: #750D37;
-    font-size: 400%;
-  }
-  h3 {
-    text-align: center;
-    color:#750D37;
-    font-size: 250%;
-  }
+h2 {
+  color: #750D37;
+  font-size: 400%;
+}
+
+h3 {
+  text-align: center;
+  color: #750D37;
+  font-size: 250%;
+}
 
 
 .button {
-    background-color: #105a1d;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    border-radius: 6px;
-    margin: 4px 2px;
-    cursor: pointer;
+  background-color: #105a1d;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 6px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
 a:hover {
-    background-color: rgb(66, 177, 66);
-    color: white;
+  background-color: rgb(66, 177, 66);
+  color: white;
 }
 
 #grid {

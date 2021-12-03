@@ -3,7 +3,7 @@
 body {
   font-family: 'Patrick Hand';
   background: #6BAA75;
-  margin: 15px;
+  margin: 0px;
   margin-top: 50px;
   background-image: radial-gradient(rgb(0, 175, 0),rgba(255, 255, 255, 0));
 }
@@ -13,7 +13,7 @@ body {
   color: black;
   margin: 0 auto;
   padding: 30px;
-  background:rgba(0, 0, 0, 0.25) ;
+  background: rgba(255, 255, 255, 0.452);
 }
 
 .logo {

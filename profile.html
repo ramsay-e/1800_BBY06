@@ -24,6 +24,7 @@
 
   <!-- link to all the api keys for the project -->
   <script src="./scripts/firebaseAPI.js"></script>
+  <script src="./scripts/profile.js"></script>
 
   <!-- Stylesheet link -->
   <link rel="stylesheet" href="styles/profile_style.css">
@@ -165,10 +166,12 @@
 
   <script>
 
-
+    
     insertName(); // Displays name and email where provided
 
-
+    // Dropdown menu variables
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
     // Dropdown menu, activates on click and controls height/width
     for (i = 0; i < coll.length; i++) {
@@ -185,9 +188,9 @@
 
     
     //call the function to run it
-    populateInfo2();
+    populateInfo();
 
-
+    
   </script>
 </body>
 

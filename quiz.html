@@ -27,6 +27,7 @@
 
   <!-- Link to the api keys for your firebase project -->
   <script src="./scripts/firebaseAPI.js"></script>
+  <script src="./scripts/quiz.js"></script>
 
   <!-- Stylesheet link -->
   <link rel="stylesheet" href="styles/quiz_style.css">
@@ -44,9 +45,9 @@
   <div class="container-fluid rounded bg-white mt-5 mb-5">
     <div class="row justify-content-center">
       <div>
-        <h1>Fill Out the Form Below to Adjust Your Preferences</h1>
+        <h1 style="font-size: 400%; text-align: center; text-decoration: underline;">Fill Out the Form Below to Adjust Your Preferences</h1>
         <br>
-        <h1 style="color: darkgreen;">Select All That Apply</h1>
+        <h1 style="color: darkgreen; text-decoration: underline; font-size: 300%;">Select All That Apply</h1>
 
         <!----------------------- Checkbox form for quiz details ---------------------->
         <form>
@@ -131,10 +132,11 @@
   </nav>
 
   <script>
-    var currentUser;
 
     //call the function to run it
     populateInfo();
+
+    
 
     // Checkbox button JS functionality
     const btn = document.querySelector('#btn');
